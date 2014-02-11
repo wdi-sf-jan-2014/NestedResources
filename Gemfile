@@ -20,7 +20,9 @@ gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'guard-rspec'
+  gem 'database_cleaner'
   gem 'dotenv'
   gem 'pry'
   gem 'pry-byebug'
