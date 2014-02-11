@@ -9,7 +9,7 @@ describe "Users" do
   end
   
   describe "POST /users/sign_in" do
-    it "should ==  successful" do
+    it "should be successful" do
       sign_in_as_a_valid_user
       response.status.should == 200
     end
