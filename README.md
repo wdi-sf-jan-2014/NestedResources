@@ -1,7 +1,7 @@
 #Reddit Clone Lab 
 
 ##Objective:
-In this lab we will be using nested resources and what you've learned so far in class to create a multi-user app, similar to Reddit.
+In this lab we will be using nested resources and authentication to create a multi-user app, similar to [Reddit](http://www.reddit.com/).
 
 ##Topics:
 
@@ -15,7 +15,7 @@ In this lab we will be using nested resources and what you've learned so far in 
 * User can post with a link and body 
 * Users can comment on posts (just a body)
 
-* Views:
+##Views:
  - You should be able to see a list of the posts with comments
  - You should be able to see all the comments associated with a past
  - You should be able to navigate to a single comment
