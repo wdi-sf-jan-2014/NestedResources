@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-NestedResources::Application.config.secret_key_base = '2c718a633dda2aa7924c3fddc6431e5a444b52d594fb7e7712200d3d6d9a8ef777b8acb75caf5c58737aa92c751b776adf95092d4a80aff9f64d5f2be83111e3'
+NestedResources::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
