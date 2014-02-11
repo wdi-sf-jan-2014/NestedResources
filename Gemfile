@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'guard'
+  gem 'guard-rspec'
   gem 'dotenv'
   gem 'pry'
   gem 'pry-byebug'
