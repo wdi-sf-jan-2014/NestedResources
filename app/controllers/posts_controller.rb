@@ -20,6 +20,9 @@ class PostsController < ApplicationController
   def create
    p = params.require(:post).permit(:link, :body)
    u = current_user
+   if p.nil?
+     flash[:notice] = "can't be blank, silly."
+   end
    new_p = Post.create(p)
 
    redirect_to post_path(new_p)

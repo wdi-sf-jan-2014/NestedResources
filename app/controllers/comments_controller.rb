@@ -17,10 +17,11 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     new_comment = params.require(:comment).permit(:comment)
     user = current_user
-    comment = post.comments.create(new_comment)
-
-    redirect_to post_path(post)   
-
+    if new_comment.nil?
+      comment = post.comments.create(new_comment)
+      redirect_to post_path(post)   
+    else
+    end
   end
 
   def show

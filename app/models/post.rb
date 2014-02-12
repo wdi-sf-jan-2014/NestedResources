@@ -13,7 +13,9 @@
 class Post < ActiveRecord::Base
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, inverse_of: :post
   
   accepts_nested_attributes_for :comments
+
+  validates :link, :body, presence: {strict: true, message: "Can't be blank silly."}
 end
