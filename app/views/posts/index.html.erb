@@ -1,2 +1,8 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Welcome to Raddit</h1>
+
+<% @posts.each do |p| %>
+<div>
+  <%= p.link %>
+  <%= p.body %>
+ </div> 
+<% end %>
