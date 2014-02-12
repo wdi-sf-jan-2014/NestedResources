@@ -1,6 +1,12 @@
-<h1>Railsit</h1>
+<h1>Railseddit</h1>
 <% @posts.each do |p| %>
     <div>
         <a href="<%= p.link %>"><%=  p.body %></a> 
+        <a href="<%= post_comments_path p.id %>">Comments</a>
     </div>
+<% end %>
+<% if user_signed_in? %>
+    <a href="<%= new_user_post_path current_user.id %>">New Post</a>
+<% else %>
+    <a href="<%= new_user_session_path %>">Login to comment</a>
 <% end %>

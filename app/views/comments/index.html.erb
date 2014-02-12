@@ -1,12 +1,16 @@
-<h1>
-    <% if @parent.link %>
-        <a href="<%= @parent.link %>"><%= @parent.body %></a>
+    <% if @parent.respond_to? :link %>
+        <h1><a href="<%= @parent.link %>"><%= @parent.body %></a></h1>
+        <% if user_signed_in? %>
+            <a href="<%= new_post_comment_path @parent %>">Comment</a>
+        <% else %>
+        <a href="<%= new_user_session_path %>">Login to comment</a>
+        <% end %>
     <% else %>
-        <%= @parent.body %>
+        <h1><%= @parent.body %></h1>
+        <% if user_signed_in? %>
+            <a href="<%= new_comment_comment_path @parent %>">Comment</a>
+        <% else %>
+            <a href="<%= new_user_session_path %>">Login to comment</a>
+        <% end %>
     <% end %>
-</h1>
-<% @comments.each do |c| %>
-    <div>
-        <%=  c.body %> by <%= c.user.email %> at <%= c.created_at %><br/>
-    </div>
-<% end %>
+<%= render @comments %>

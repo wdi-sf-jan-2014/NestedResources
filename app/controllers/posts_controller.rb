@@ -22,11 +22,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(post_id)
+    redirect_to post_comments_path post_id
   end
 
   private
-  
+
   def post_params
     params.require(:post).permit(:body, :link)
   end

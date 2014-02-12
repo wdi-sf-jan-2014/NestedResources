@@ -1,0 +1,7 @@
+<div class="comment"><%= comment.body %> by <%= comment.user.email %> at <%= comment.created_at %>
+    <% if user_signed_in? %>
+            <a href="<%= new_comment_comment_path(comment.id)%>">Comment</a> </br>
+    <% else %>
+            <a href="<%= new_user_session_path %>">Login to comment</a></br>
+    <% end %>
+<%= render comment.comments if comment.comments.length > 0 %></div>

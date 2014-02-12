@@ -17,14 +17,18 @@ class CommentsController < ApplicationController
         if user_signed_in?
             comment = parent.comments.create(comment_params)
             current_user.comments << comment
-            redirect_to [parent, comment]
+            if parent.class.to_s == "Comment"
+                redirect_to comment_comments_path parent
+            else
+                redirect_to parent
+            end
         else
             redirect_to new_user_session_path
         end
     end
 
     def show
-        @comment = Post.find(post_id).comments.find(comment_id)
+        @comment = parent.comments.find(comment_id)
     end
 
     private
@@ -36,11 +40,14 @@ class CommentsController < ApplicationController
     def parent
         if post_id
             Post.find(post_id)
-        elsif comment_id
-            Comment.find(comment_id)
+        elsif parent_comment_id
+            Comment.find(parent_comment_id)
         end
     end
 
+    def parent_comment_id
+        params[:comment_id]
+    end
     def post_id
         params[:post_id]
     end
