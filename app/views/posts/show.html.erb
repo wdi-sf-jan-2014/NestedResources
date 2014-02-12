@@ -1,0 +1,11 @@
+<h1>Post#show</h1>
+<p>Find me in app/views/posts/show.html.erb</p>
+
+Link: <%=@post.link%></br>
+Body: <%=@post.body%></br>
+
+<%@post.comments.each do |c| %>
+  <a href="/posts/<%=@post.id%>/comments/<%=c.id%>">Comment: <%=c.body%></a></br>
+<%end%>
+
+<p><a href="">New Comment</a>

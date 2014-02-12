@@ -1,2 +1,18 @@
 <h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
+<p><a href="/posts/new">New post</a></p>
+
+<% @posts.each do |post| %>
+  <div>
+    Link: <a href="/posts/<%=post.id%>"><%=post.link%></a>
+    </br>
+    Body: <%=post.body%>
+    </br>
+  <%post.comments.each do |comment| %>
+
+    Comment: <%=comment[:body]%>
+    </br>
+    </br>
+  <%end%> 
+  </div>
+<%end%>   
