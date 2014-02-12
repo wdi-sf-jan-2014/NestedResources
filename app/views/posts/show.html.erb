@@ -1,0 +1,12 @@
+<%= @post.link %><br>
+<%= @post.body %>
+
+<p>Would you like to post a <a href=<%=new_post_comment_path(@post.id)%>>comment</a>?</p>
+
+<p>Showing all comments below:</p>
+
+<% @comment_order.each do |comment| %>
+
+		Comment #<%=comment.id%><p><%= comment.body %></p><br>
+
+		<% end %>
