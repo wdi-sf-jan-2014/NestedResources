@@ -1,0 +1,9 @@
+<h3><a href=<%= @post.link %>><%= @post.body %></a></h3>
+
+<% @comments.each do |c| %>
+  <li><%= c.body %> </li>
+  <% end %>
+
+<%= render "/comments/new_comment" %>
+
+<%= @post.link %>
