@@ -1,4 +1,4 @@
-<h1>Edit comment <%=@comment.body%> for <%=@post.link%></p>
+<h1>Edit comment <%=@comment.body%> for <%=@post.link%></h1>
 <% #binding.pry %>
 <%= form_for [@post, @comment] do |f| %>
 <%= f.text_area :body, placeholder: 'comment body' %>
