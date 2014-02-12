@@ -14,10 +14,12 @@ class CommentsController < ApplicationController
   	post = Post.find(params[:post_id])
   	comment = post.comments.create(new_comment)
 
-  	# redirect_to post_comment_path(post, comment)
-  	redirect_to '/'
+  	redirect_to post_comment_path(post, comment)
   end
 
+  # POST (per rake routes), display comment based on passed in post & comment ids
   def show
+  	@post = Post.find(params[:post_id])
+  	@comment = @post.comments.find(params[:id])
   end
 end
