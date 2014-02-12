@@ -1,0 +1,15 @@
+<h1>Post Details</h1>
+
+<p>
+Link: <%= @post.link %> <br>
+Description: <%= @post.body %><br>
+Post Created on <%=@post.created_at.strftime("%d %b %y") %> at <%=@post.created_at.strftime("%d %b %y") %>
+</p>
+<% @post.comments.each do |c| %>
+<ul>
+<li><%= c.body %> </li>
+</ul>
+<% end %>
+<%= link_to "new", :action => new_user_post_comment_path(:user_id => @user.id, :post_id => params[:id]), :controller => "comments", :action => 'new', :method => :get, :user_id => @user.id, :post_id => params[:id]%>
+<%= link_to "edit", :controller => "posts", :action => 'edit', :method => :get,  :id => @post.id %>
+<%= button_to "delete", {:controller => "posts", :action => 'destroy'}, :confirm => "Are you sure you want to delete?", :method => :delete, :id => @post.id %>

@@ -1,2 +1,19 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Auctions#index</h1>
+<% @posts.each do |a| %>
+<ul>
+<li>
+<ul>
+<li><%= a.link %> </li>
+<li><%= a.body %> </li>
+<li> Comments </li>
+<% a.comments.each do |c| %>
+<ul>
+<li> <%= c.body %> </li>
+</ul>
+<li><a href="/users/<%=a.user_id%>/posts/<%=a.id%>/">View Post</a></li>
+</ul>
+<% end %>
+</li>
+<hr>
+</ul>
+<% end %>
