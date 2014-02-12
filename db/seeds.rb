@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+post = Post.create(link: "reddit.com", body: "The original!")
+another_post = Post.create(link: "google.com", body: "For all your learning")
+
+post.comments.create(body: "ilu reddit")
+post.comments.create(body: "9gag is better")
+post.comments.create(body: "#2 you're an idiot")
+post.comments.create(body: "no u")
+
+another_post.comments.create(body: "Careful not to get scroogled")
+another_post.comments.create(body: "lol")
+another_post.comments.create(body: "I hate signing into Youtube using G+")

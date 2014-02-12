@@ -1,7 +1,4 @@
-class PostsController < ApplicationController
-  def index
-  end
-
+class CommentsController < ApplicationController
   def new
   end
 
