@@ -33,11 +33,20 @@ describe "Posts" do
     end
   end
 
-  describe "GET /new" do
+  describe "GET /new", type: :feature do
     it "should be successful" do
       sign_in_as_a_valid_user
       get new_post_path
       response.status.should == 200
+    end
+
+    it "should have a form to create a post" do
+      sign_in_as_a_valid_user
+      get new_post_path
+
+      response.body.should have_field("Link")
+      response.body.should have_field("Body")
+      response.body.should have_field("Comment text")
     end
   end
 

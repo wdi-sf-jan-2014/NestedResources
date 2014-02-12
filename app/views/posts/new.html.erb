@@ -4,7 +4,7 @@
   <%= f.label :body %>
   <%= f.text_field :body %> 
   <%= f.fields_for :comments, @post.comments.build do |c| %>
-    <%= c.label :body %>
+    <%= c.label :body, 'Comment text' %>
     <%= c.text_field :body %>
   <% end %>
   <%= f.submit "Add" %>
