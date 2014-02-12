@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post_params = params.require(:post).permit(:link, :body)
+    post_params = params.require(:post).permit(:link, :body, comments_attributes: [ :body ])
     post = current_user.posts.create(post_params)
     redirect_to post_path(post.id)
   end

@@ -44,17 +44,36 @@ describe "Posts" do
   describe "POST /posts" do
     before do
       sign_in_as_a_valid_user
-      post posts_path, post: { link: 'http://google.com', body: 'Google is cool'}
     end
+    context "without a comment" do
+      before do
+        post posts_path, post: { link: 'http://google.com', body: 'Google is cool'}
+      end
 
-    it "should redirect to the post" do
-      response.status.should redirect_to post_path(@user.posts.first.id)
+      it "should redirect to the post" do
+        response.status.should redirect_to post_path(@user.posts.first.id)
+      end
+
+      it "should show the post" do
+        follow_redirect!
+        response.body.should include("http://google.com")
+        response.body.should include("Google is cool")
+      end
     end
-
-    it "should show the post" do
-      follow_redirect!
-      response.body.should include("http://google.com")
-      response.body.should include("Google is cool")
+    context "with a nested comment" do
+      before do
+        post posts_path, post: { 
+          link: 'http://google.com',
+          body: 'Google is cool',
+          comments_attributes: { "0" => { body: 'Commenting like a bauce' } }
+        }
+      end
+      it "should show the post and comment" do
+        follow_redirect!
+        response.body.should include("http://google.com")
+        response.body.should include("Google is cool")
+        response.body.should include("Commenting like a bauce")
+      end
     end
   end
 end

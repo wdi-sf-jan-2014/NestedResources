@@ -1,2 +1,10 @@
-<span><%= @post.link %></span>
-<span><%= @post.body %></span>
+Post
+<div><%= @post.link %></div>
+<div><%= @post.body %></div>
+
+<div>
+  Comments
+  <% @post.comments.each do |comment| %>
+    <div><%= comment.body %></div>
+  <% end %>
+</div>
