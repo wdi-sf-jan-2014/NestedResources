@@ -1,5 +1,17 @@
 #Reddit Clone Lab 
 
+
+##What I have done:
+
+1. User can create, view and edit Posts
+2. User can create, view and edit Comments
+3. Created associations for User, Posts and Comments
+
+Unfortunately, I was unable to make my rspec to pass. 
+
+I also did not do bonus and the delete method.
+
+
 ##Objective:
 In this lab we will be using nested resources and authentication to create a multi-user app, similar to [Reddit](http://www.reddit.com/).
 
