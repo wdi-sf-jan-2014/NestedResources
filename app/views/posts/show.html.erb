@@ -1,14 +1,17 @@
 <h3>Link: <%=@post.link%></h3>
 <h3>Post: <%=@post.body%></h1>
-
-<% if @comments.nil? %>
-
-<% else %>
-
-	<%= @comments.body%>
-
-<%end%>
-
+<%if @post.comments.count == 0 %>
+	<p>No comments!</p>
+<% elsif @post.comments.count ==1 %>
+	<h1>Comment: <%=@post.comments.id%></h1>
+	<h2>Comment: <%= @post.comments.body %></h2>
+<% else %>	
+	<% @post.comments.each do |comment| %>
+		<h1>Comment: <%= comment.id %></h1>
+		<h2>Comment: <%= comment.body %></h2>
+		<%=button_to "Edit this Comment",  edit_post_comment_path(@post.id, comment.id), method: :get %>
+	<% end %>
+<% end %>
 <%= button_to "Add a new comment", new_post_comment_path(@post.id), method: :get %>
 
 <%= button_to "Home", root_path, method: :get %>

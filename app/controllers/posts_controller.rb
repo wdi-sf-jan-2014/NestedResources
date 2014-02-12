@@ -17,9 +17,9 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
   	#binding.pry
-	if @post.comments.nil?
-		@comments = @post.comments.find(@post.comments)
-	end
+	# if @post.comments.nil?
+	# 	@comments = @post.comments.find(@post.comments)
+	# end
   end
 
 end

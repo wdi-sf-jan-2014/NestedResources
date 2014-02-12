@@ -5,7 +5,7 @@
 	<h2>Comment: <%= @post.comments.body %></h2>
 <% else %>
 	<% @post.comments.each do |comment| %>
-		<h1>Comment: <%= comment.id%></h1>
+		<h1>Comment: <%= comment.id %></h1>
 		<h2>Comment: <%= comment.body %></h2>
 		<%=button_to "Edit this Comment",  edit_post_comment_path, method: :get %>
 	<% end %>
@@ -13,3 +13,4 @@
 
 
 <%= button_to "See post", post_path(@post.id), method: :get %>
+<%= button_to "Home", root_path, method: :get %>
