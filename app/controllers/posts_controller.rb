@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  
   def index
-    @posts = Post.all
+    @posts = @posts_without_comments
   end
 
   def new
@@ -9,10 +10,11 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create(params[:post].permit(:link, :body, :comments_attributes=>[:body]))
-    redirect_to :root
+    redirect_to post
   end
 
   def show
     @post = Post.find(params[:id])
   end
+  
 end
