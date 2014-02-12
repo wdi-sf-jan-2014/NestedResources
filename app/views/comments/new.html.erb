@@ -1,0 +1,9 @@
+<h1>Create new comment for: </h1>
+<h3><%= @post.link %></h3>
+
+<%= form_for [@post, @comment] do |f| %>
+    <%= f.text_field :body %>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to "Go back to post", post_comments_path(@post.id) %>
