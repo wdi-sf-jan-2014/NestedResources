@@ -9,8 +9,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    params.require(:post).permit(:link, :body)
-    post = current_user.posts.create(params[:post])
+    post_params = params.require(:post).permit(:link, :body)
+    post = current_user.posts.create(post_params)
     redirect_to post_path(post.id)
+  end
+
+  def show
+    @post = current_user.posts.find(params[:id])
   end
 end

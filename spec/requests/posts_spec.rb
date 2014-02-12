@@ -44,7 +44,6 @@ describe "Posts" do
   describe "POST /posts" do
     before do
       sign_in_as_a_valid_user
-      get new_post_path
       post posts_path, post: { link: 'http://google.com', body: 'Google is cool'}
     end
 
