@@ -2,6 +2,7 @@ posts/new.html.erb
 
 <%= form_for @post do |f| %> 
 	<%= f.text_field :body, placeholder: "write your post here" %>
+	<%= f.text_field :link, placeholder: "add a URL here" %>
 	<%= f.fields_for :comments, @post.comments.build do |b| %>
 		<%= b.text_field :body, placeholder: "comments" %>
 	<% end %>
