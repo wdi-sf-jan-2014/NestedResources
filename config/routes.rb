@@ -7,6 +7,8 @@ NestedResources::Application.routes.draw do
 
   resources :users
 
+
+  # resources :posts, only 
   resources :posts do
   resources :comments
 	end
