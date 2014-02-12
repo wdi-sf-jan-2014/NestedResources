@@ -1,0 +1,12 @@
+
+Post: <%= @post.body %> <br><br>
+<% @post.comments do |f| %>
+Comments: <%= f.body %> <br>
+<% end %>
+<%= link_to 'Edit', edit_post_path %><br>
+<%= link_to 'Comment', new_post_comment_path(@post.id) %> 
+
+
+
+
+
