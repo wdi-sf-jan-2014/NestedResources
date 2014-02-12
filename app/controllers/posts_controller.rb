@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create(params[:post].permit(:link, :body, :comments_attributes=>[:body]))
-    redirect_to post
+    redirect_to :root
   end
 
   def show
