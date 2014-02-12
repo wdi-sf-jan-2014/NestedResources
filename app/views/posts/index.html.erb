@@ -1,4 +1,6 @@
 <% @posts.each do |post| %>
-  <span><%= post.link %></span>
-  <span><%= post.body %></span>
+  <div>
+    <div><a href="<%= post_path(post) %>"><%= post.link %></a></div>
+    <div><%= post.body %></div>
+  </div>
 <% end %>

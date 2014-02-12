@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "Posts" do
+describe "Comments" do
   describe "GET /comments/:id" do
-    it "should be successful" do
+    before do
       sign_in_as_a_valid_user
       Post.create({ 
         user: @user, 
@@ -11,7 +11,12 @@ describe "Posts" do
         comments_attributes: { "0" => { body: 'I am a comment' } }
       })
       get comment_path(Post.last.comments.first)
+    end
+    it "should be successful" do
       response.status.should == 200
+    end
+    it "should show the comment" do
+      response.body.should include("I am a comment")
     end
   end
 end

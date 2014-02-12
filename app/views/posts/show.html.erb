@@ -5,6 +5,6 @@ Post
 <div>
   Comments
   <% @post.comments.each do |comment| %>
-    <div><%= comment.body %></div>
+    <div><a href="<%= comment_path(comment)%>"><%= comment.body %></a></div>
   <% end %>
 </div>
