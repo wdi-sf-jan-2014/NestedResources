@@ -3,3 +3,5 @@
 	<h2><%= link_to p.body, p.link %></h2>
 	<h4><%= link_to "#{p.comments.count} Comments", post_path(p.id) %></h4>
 <% end %>
+
+<%= button_to "New Post", "/posts/new", method: :get %>
