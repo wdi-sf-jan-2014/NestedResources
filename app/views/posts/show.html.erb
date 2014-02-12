@@ -1,0 +1,11 @@
+<h1>POST DETAIL PAGE</h1>
+
+<h2><%= @post.link %></h2><br>
+<h3><%= @post.body %></h3>
+
+<% @post.comments.each do |comment| %>
+	<div>
+	<%= comment.created_at %>
+	<%= comment.body %>
+	</div>
+<% end %>
