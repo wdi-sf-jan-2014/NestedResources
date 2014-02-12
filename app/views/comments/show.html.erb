@@ -2,7 +2,8 @@ Post: <%= @post.body %> <br><br>
 
 <% @comment.each do |f| %>
 <%= f.body %>
-<%= link_to 'Edit', "/posts/#{@post.id}/comments/#{f.id}/edit" %><br>
+<%= link_to 'Edit', edit_post_comment_path(@post.id, f.id) %><br>
+
 
 <% end %> 
 
