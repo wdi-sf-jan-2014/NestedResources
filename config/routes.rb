@@ -5,6 +5,8 @@ NestedResources::Application.routes.draw do
   get '/posts', to: 'posts#index', as: :posts
   root to: 'posts#index'
 
+  resources :users
+
   resources :posts do
   resources :comments
 	end
