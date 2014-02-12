@@ -8,4 +8,4 @@ Body: <%=@post.body%></br>
   <a href="/posts/<%=@post.id%>/comments/<%=c.id%>">Comment: <%=c.body%></a></br>
 <%end%>
 
-<p><a href="">New Comment</a>
+<p><a href="/posts/<%=@post.id%>/comments/new">New Comment</a></p>
