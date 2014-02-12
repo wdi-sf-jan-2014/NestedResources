@@ -1,2 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Posts...</h1>
+<% unless @posts.empty? %>
+	<div class='col-sm-6'>
+		<ul>
+			<% @posts.each do |p| %>
+				<li><a href="/posts/<%= p[:id] %>"><%= p[:link] %></a></li>
+			<% end %>
+		</ul>
+	</div>
+<% else %>
+	<p>no posts to show...</p>
+<% end %>

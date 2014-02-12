@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
  
+ 	# GET, list of posts
   def index
+  	@posts = Post.all
   end
 
   # GET, start of creating a new Post (obtain attributes)
