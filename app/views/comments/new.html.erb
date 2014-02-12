@@ -1,0 +1,7 @@
+<h1>Comments#new</h1>
+<p>Find me in app/views/bids/new.html.erb </p>
+
+<%=form_for [@post, @post.comments.build] do |f| %>
+<%= f.text_field :commentbody %>
+<%= f.submit %>
+<%end%>

@@ -1,0 +1,8 @@
+<h1><%= @post.body %> </h1>
+
+<h3>Comments: </h3>
+<% @post.comments.each do |comment| %>
+	<div>  <%=comment.commentbody %>
+	</div>
+	<%#= button_to "delete", auction_bid_path, :id => bid.id, :method=>:delete%>
+<%end%>
