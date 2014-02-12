@@ -1,7 +1,19 @@
 NestedResources::Application.routes.draw do
-  get "posts/index"
+
+  get "profiles/index"
+  get "profiles/show"
+  get "comments/index"
+  get "comments/create"
+  get "comments/show"
+  get "comments/new"
+  get "comments/update"
+  get "comments/destroy"
+  get "comments/edit"
   devise_for :users
 
-  get '/posts', to: 'posts#index', as: :posts
+  resources "posts" do
+    resources "comments"
+  end
+
   root to: 'posts#index'
 end
