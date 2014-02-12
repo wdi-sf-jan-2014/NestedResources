@@ -4,6 +4,6 @@
 
 <% @posts.each do |p| %>
     <ul>
-        <li><%= link_to p.body, post_comments_path(p.id) %></li>
+        <li><%= link_to p.link, post_comments_path(p.id) %></li>
     </ul>
 <% end %>
