@@ -1,0 +1,10 @@
+<h1>New Post</h1>
+
+<%= form_for @post do |f| %>
+<%= f.text_field :link, placeholder: "URL" %>
+<%= f.fields_for :comments, @post.comments.build do |c| %>
+<%= c.text_field :body, placeholder: "Comment" %>
+
+<% end %>
+<%= f.submit %>
+<% end %>
