@@ -10,9 +10,11 @@ class PostsController < ApplicationController
   # POST, finalize the creation of new Post (persist attributes)
   def create
   	post = Post.create(params[:post].permit(:body, :link))
-  	redirect_to '/'
+  	redirect_to post
   end
 
+  # POST (per rake routes), display post based on passed in post id
   def show
+  	@post = Post.find(params[:id])
   end
 end
