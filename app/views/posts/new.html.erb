@@ -1,0 +1,10 @@
+<h1>Create a New Post and add an Initial Comment</h1>
+
+<%= form_for @post do |f| %>
+	<%= f.text_field :link, placeholder: 'link' %></br>
+	<%= f.text_area :body, placeholder: 'post' %></br>
+	<%= f.fields_for :comments, @post.comments.build do |p| %>
+		<%= p.text_area :body, placeholder: 'initial comment' %>
+		<% end %>
+	<%= f.submit 'Create' %>
+<% end %>

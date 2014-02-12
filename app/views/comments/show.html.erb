@@ -1,0 +1,7 @@
+<h1> Comment number <%= @comment.id %> for <%=@post.link%></h1>
+<div>
+	Comment: <%= @comment.body%>
+</div>
+
+<%= link_to "Edit this comment", edit_post_comment_path%></br>
+<%= link_to "Back to post", post_path(@post)%>

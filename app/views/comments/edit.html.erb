@@ -1,0 +1,6 @@
+<h1>Edit comment number <%=@comment.id%> for <%= @post.link%></h1>
+
+<%= form_for [@post, @comment] do |f| %>
+	<%= f.text_area :body %>
+	<%= f.submit 'Update' %>
+<% end %>
