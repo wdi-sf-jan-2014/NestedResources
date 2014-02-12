@@ -6,7 +6,8 @@
   <%= f.text_area :body, placeholder: "what is your post about?" %>
   <%= f.fields_for :comments, @post.comments.build do |c| %>
     <%= c.text_area :body, placeholder: "Add a comment!" %>
-  <% end %>
+   <% end %>
+
   <%= f.submit %>
 
 <% end %>
