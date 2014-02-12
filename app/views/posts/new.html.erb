@@ -5,7 +5,7 @@
 	<%= f.text_field :link, placeholder:'post a link'%><br>
 	<%= f.label :body, "description"%><br>
 	<%= f.text_area :body, placeholder:'write a description' %>	<br>
-		<%= f.fields_for :comment, @post.comments.build  do |b| %>
+		<%= f.fields_for :comments, @post.comments.build  do |b| %>
 			<%= b.label :commentbody, "comment" %><br>
 			<%= b.text_field :commentbody, placeholder:'Comment' %><br>
 		<%end%>

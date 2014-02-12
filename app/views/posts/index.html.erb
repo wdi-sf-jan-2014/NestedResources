@@ -1,8 +1,8 @@
 <h1>Posts:</h1>
 
 <%@posts.each do |f| %>
-	<%=f.link%><br>
-	<%=f.body%><br>
+	<a href="http://<%=f.link%>"><%=f.link%></a><br>
+	<a href="/posts/<%=f.id%>/comments"><%=f.body%></a><br>
 	<div>
 	<%f.comments.each do |x|%>
 	<%=x.commentbody %><br>
