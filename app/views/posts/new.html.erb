@@ -1,0 +1,13 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+<%= form_for @post do |f| %>
+  <%= f.text_field :link, placeholder: "Link" %>
+  <%= f.text_area :body, placeholder: "Body" %>
+  <!-- CHANGE HERE -->
+  <%= f.fields_for :comments, @post.comments.build do |c| %>
+    <%= c.text_field :body, placeholder: "comment" %>
+
+  <% end %>
+  <%= f.submit %>
+<% end %>
