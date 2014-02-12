@@ -1,0 +1,10 @@
+<h1>Make a New Post</h1>
+
+<%= form_for @post do |f| %>
+    <%= f.text_area :title, placeholder: "Make Your Post Here" %><br>
+    <%= f.text_field :link, placeholder: "Post Link Here" %><br>
+    <%= f.fields_for :comments, @post.comments.build do |c| %>
+        <%= c.text_area :body, placeholder: "Enter Your Comments Here" %><br>
+    <% end %>
+    <%= f.submit %>
+<% end %>
