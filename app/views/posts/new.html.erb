@@ -1,0 +1,10 @@
+<%= form_for @post do |f| %>
+	<%= f.text_field :link, placeholder: "Title of your post" %>
+	<%= f.text_field :body, placeholder: "Body of your post" %>
+	
+	<%= f.fields_for :comments, @post.comments.build do |c| %>
+		<%= c.text_field :body, placeholder: "Your comment" %>
+		
+	<% end %>
+	<%= f.submit "Add" %>
+<% end %>

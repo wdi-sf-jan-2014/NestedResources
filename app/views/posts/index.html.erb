@@ -1,2 +1,14 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% unless user_signed_in? %>
+<p><%= link_to 'Sign up', new_user_registration_path %></p>
+<p><%= link_to 'Sign in as User', new_user_session_path %></p>
+<% end %>
+
+
+<h1>All our posts</h1>
+
+<% @posts.each do |post| %>
+	 <div>
+	 <a href="/posts/<%= post.id %>/comments"><%= post.link %></a><br/>
+	</div> 
+<% end %>
+
