@@ -8,5 +8,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    post = Post.create(params[:post].permit(:link, :body, :comments_attributes=>[:body]))
+    redirect_to :root
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 end
