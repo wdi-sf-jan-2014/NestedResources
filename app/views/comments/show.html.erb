@@ -1,8 +1,13 @@
 <h1><%= @post.body %></h1>
-	
+
 <br>
 <div> 
 <br>
 <%=@comment.user_id%> : <%=@comment.commentbody%>
 </div>
+
+<br>
+<%=link_to "back to post", post_comments_path%>
+<br>
+
 <%=link_to "edit comment", edit_post_comment_path %>

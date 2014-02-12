@@ -8,5 +8,7 @@
 	</div>
 	<%#= button_to "delete", auction_bid_path, :id => bid.id, :method=>:delete%>
 <%end%>
-
+<br>
+<%=link_to "add a comment",  new_post_comment_path%>
+<br>
 <%=link_to "Go back to posts", posts_path %>
