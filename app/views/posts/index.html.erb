@@ -1,3 +1,8 @@
+<div>
+<a href=<%=new_post_path%>>New Post</a>
+</div><br><br>
+
+
 <% @posts.each do |post| %>
 	<div>
 	<a href=<%=post_path(post.id)%>><%= post.link %></a><br>

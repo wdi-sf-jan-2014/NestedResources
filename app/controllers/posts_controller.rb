@@ -15,6 +15,10 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find(params[:id])
+  	@comment_order = []
+  	@post.comments.each do |comment|
+  		@comment_order.unshift(comment)
+  	end
   end
 
   def delete

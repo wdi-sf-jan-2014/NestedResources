@@ -1,2 +1,10 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<%= @post.link %><br>
+<%= @post.body %>
+
+<p>Showing all comments below:</p>
+
+<% @comment_order.each do |comment| %>
+
+		Comment #<%=comment.id%><p><%= comment.body %></p><br>
+
+		<% end %>
