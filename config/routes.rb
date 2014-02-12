@@ -2,6 +2,6 @@ NestedResources::Application.routes.draw do
   get "posts/index"
   devise_for :users
 
-  get '/posts', to: 'posts#index', as: :posts
+  resources :posts, only: [:index, :new, :create, :show]
   root to: 'posts#index'
 end

@@ -33,18 +33,26 @@ describe "Posts" do
     end
   end
 
+  describe "GET /new" do
+    it "should be successful" do
+      sign_in_as_a_valid_user
+      get new_post_path
+      response.status.should == 200
+    end
+  end
+
   describe "POST /posts" do
     before do
       sign_in_as_a_valid_user
-      post posts_path({ post: { link: 'http://google.com', body: 'Google is cool'} })
-      follow_redirect!
+      post posts_path, post: { link: 'http://google.com', body: 'Google is cool'}
     end
 
-    it "should be successful" do
-      response.status.should == 200
+    it "should redirect to the post" do
+      response.status.should redirect_to post_path(@user.posts.first.id)
     end
 
     it "should show the post" do
+      follow_redirect!
       response.body.should include("http://google.com")
       response.body.should include("Google is cool")
     end
