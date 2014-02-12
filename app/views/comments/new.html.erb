@@ -1,0 +1,6 @@
+<h1> This comment is for: <%= @post.name %> </h1>
+
+<%= form_for [@post, @comment] do |f| %>
+	<%= f.text_area :comment_body %><br>
+	<%= f.submit %>
+<% end %>
