@@ -1,2 +1,9 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%for i in @posts %>
+	Link: <%=i.link%>  <%=link_to "Link to Post",post_path(i)%><br>
+	Body: <%=i.body%><br>
+	Comments: <br>
+	<% for c in i.comments %>
+		<%=c.body%> <%=link_to "Link to Comment",post_comment_path(i,c)%><br>
+	<%end%>
+	<br>
+<%end%>

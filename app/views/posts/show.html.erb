@@ -1,0 +1,7 @@
+
+	<%=@post.link%><br>
+	<%=@post.body%><br>
+	<% for c in @post.comments %>
+		<%=c.body%><%=link_to "Link to Comment",post_comment_path(@post,c)%><br>
+	<%end%>
+

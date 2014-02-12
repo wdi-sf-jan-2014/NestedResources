@@ -1,0 +1,7 @@
+New Post
+
+<%= form_for @post do |f| %>
+	<%= f.text_field :link, placeholder: "Enter Link"%>
+	<%= f.text_field :body, placeholder: "Enter Body"%>
+	<%= f.submit %>
+<%end%>
