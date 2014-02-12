@@ -1,7 +1,9 @@
+<%=link_to "Submit a Post",new_post_path%><br><br>
+
 <%for i in @posts %>
 	Link: <%=i.link%>  <%=link_to "Link to Post",post_path(i)%><br>
 	Body: <%=i.body%><br>
-	Comments: <br>
+	Comments: <%=link_to "Comment on this Post",new_post_comment_path(i)%><br>
 	<% for c in i.comments %>
 		<%=c.body%> <%=link_to "Link to Comment",post_comment_path(i,c)%><br>
 	<%end%>

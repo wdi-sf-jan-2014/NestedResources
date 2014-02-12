@@ -9,7 +9,8 @@ class PostsController < ApplicationController
   end
 
   def create
-  	post = Post.create(params[:post].permit(:link,:body))
+  
+  	post = Post.create(params[:post].permit(:link,:body, :comments_attributes=>[:body]))
   	redirect_to post_path(post)
   end
 
