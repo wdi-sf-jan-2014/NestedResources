@@ -2,13 +2,14 @@
 
 <h1>Posts:</h1>
 <% @posts.each do |post| %>
-	<a href="/posts/<%=post.id%>/comments"><div><h3><%= post.body %></h3></div></a>
-	<a href="http://<%=post.link%>"><div><h3><%= post.link %></h3></div></a>
+	<a href="/posts/<%=post.id%>/comments"><h3><%= post.body %></h3></a>
+	Link: <a href="http://<%=post.link%>"><%= post.link %></a>
 	<h4>comments:</h4>
 	<% post.comments.each do |comment| %>
 	<div><%= comment.body %></div>
 	<% end %>
+---
 
 <% end %>
-
+<br>
 <%= link_to "Add a new post", new_post_path %>
