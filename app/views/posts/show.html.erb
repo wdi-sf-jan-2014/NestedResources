@@ -2,6 +2,9 @@ SHOW ME THIS POST!
 
 <h3><%= @post.body %></h3>
 
+<a href='<%= @post.link%>' target='_blank'><h4><%= @post.link %></h4></a>
+
+
 <h5>Comments</h5>
 
 <% @post.comments.each do |c| %>
@@ -9,3 +12,5 @@ SHOW ME THIS POST!
     <%= c.comment %>
   </div>
 <% end %>
+<br />
+<a href='/posts/<%= @post.id%>/comments/new'><h5>CLICK TO ADD A COMMENT</h5></a>

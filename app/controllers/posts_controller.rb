@@ -18,7 +18,11 @@ class PostsController < ApplicationController
   end
 
   def create
+   p = params.require(:post).permit(:link, :body)
+   u = current_user
+   new_p = Post.create(p)
 
+   redirect_to post_path(new_p)
 
   end
 
