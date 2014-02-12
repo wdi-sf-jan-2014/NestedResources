@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+post = Post.create(body: "www.twitter.com/ninacodes", link: "Yo check out my new twitter handle")
+post.comments.create(body: "Sweeeeeet!")
+post.comments.create(body: "LOLwut?")
+post2 = Post.create(body: "www.giftegg.herokuapp.com", link: "TIL giftees can't be created D:")
+post2.comments.create(body: "Boooooo!")
+post2.comments.create(body: "Check out the Heroku logs in terminal!")
+post2.comments.create(body: "Luv the app. Git it werkin")
+post3 = Post.create(body: "funny cat pics? NSFW gifs? You betcha! Reddit is the ULTIMATE time black hole", link: "NSFL: THE ULTIMATE TIME WASTER")
+post3.comments.create(body: "but seriously... it is")
+post3.comments.create(body: "LOLOLOLOLOL")
+post3.comments.create(body: "I CAN HAZ ALL THE CAPSLOCK AFIJDSFJAGI IGJS A;I481UHRFWNNFA")

@@ -1,0 +1,6 @@
+<h1>Showing comment of <%= @post.link %></h1>
+
+<%= @comment.body %>
+<br>
+<%= link_to "Go back to post", post_comments_path(@post.id) %> <br>
+<%= link_to "Go back to homepage", posts_path %>

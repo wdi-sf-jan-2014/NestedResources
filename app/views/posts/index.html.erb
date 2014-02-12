@@ -1,2 +1,9 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Nest-eddit's Homepage</h1>
+<p>Find time consuming posts with comedic looping comments that you can bond with other Nest-eddit users over.</p>
+<p>PS: I have karma, therefore I am.</p>
+
+<% @posts.each do |p| %>
+    <ul>
+        <li><%= link_to p.body, post_comments_path(p.id) %></li>
+    </ul>
+<% end %>
