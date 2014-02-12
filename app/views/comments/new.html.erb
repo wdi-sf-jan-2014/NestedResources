@@ -1,0 +1,6 @@
+comments/new.html.erb
+
+<%= form_for [@post, @comment] do |f| %>
+	<%= f.text_field :body %>
+	<%= f.submit %>
+<% end %>

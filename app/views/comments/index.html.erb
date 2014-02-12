@@ -1,0 +1,8 @@
+comments/index.html.erb
+<h1><%= @post.body %></h1>
+<% @post.comments.each do |comment| %>
+<div><%= comment.body %></div>
+<% end %>
+
+<%= link_to "Leave a comment", new_post_comment_path %>
+<%= link_to "See all posts", posts_path %>
