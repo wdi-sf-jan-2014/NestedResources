@@ -1,0 +1,9 @@
+<%= link_to "Back", post_path(@post) %>
+<h1>Edit Post:</h1>
+
+<%= form_for @post do |f| %>
+	<%= f.text_field :link, placeholder: "link" %><br>
+	<%= f.text_area :body, placeholder: "Post body" %><br>
+	<%= f.submit %>
+<% end %>
+<%= button_to "Delete post", action: "destroy" %>

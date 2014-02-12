@@ -1,0 +1,13 @@
+<%= link_to "Back", post_path(@post) %>
+<h1><%= @post.body %></h1>
+
+Comments:<br>
+<% @post.comments.each do |comment|%>
+	<%= comment.body %><br>
+<% end %>
+
+<%= form_for [@post, @comment] do |f| %>
+	<%= f.text_area :body, placeholder: "Comment" %><br>
+	<%= f.submit %>
+<% end %>
+
