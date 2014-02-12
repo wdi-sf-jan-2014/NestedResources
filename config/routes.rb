@@ -1,5 +1,12 @@
 NestedResources::Application.routes.draw do
 
+  get "comments/index"
+  get "comments/create"
+  get "comments/show"
+  get "comments/new"
+  get "comments/update"
+  get "comments/destroy"
+  get "comments/edit"
   devise_for :users
 
   resources "posts" do
