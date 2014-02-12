@@ -1,20 +1,25 @@
 class PostsController < ApplicationController
   
-  before_filter :authenticate_user! 
-  before_filter :user_signed_in?, only: [:create, :new, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :user_signed_in?, only: [:create, :new, :edit, :update, :destroy]
 
 
   def index
+    @posts = Post.all
   end
 
   def show
-
+   @post = params[:id]
   end
 
   def new
+  	@post = Post.new
+  	@user = current_user
   end
 
   def create
+
+
   end
 
   def edit
