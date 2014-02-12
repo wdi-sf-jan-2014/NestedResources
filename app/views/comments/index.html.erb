@@ -1,0 +1,10 @@
+<h1>Post Comments</h1>
+
+<%= @post.url %><br>
+<%= @post.body %><br>
+
+<% @post.comments.each do |comment| %>
+  <div>
+    Comment: <%= comment.body %><br>
+  </div><br>
+<% end %>
