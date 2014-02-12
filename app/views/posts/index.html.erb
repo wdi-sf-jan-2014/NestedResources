@@ -3,7 +3,7 @@
 	<div class='col-sm-6'>
 		<ul>
 			<% @posts.each do |p| %>
-				<li><a href="/posts/<%= p[:id] %>"><%= p[:link] %></a></li>
+				<li><a href="/posts/<%= p[:id] %>"><%= p[:body] %> - <%= p[:link] %></a></li>
 			<% end %>
 		</ul>
 	</div>
