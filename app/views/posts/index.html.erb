@@ -1,6 +1,6 @@
 <%= link_to 'Create A Post', new_post_path %><br>
 <%= link_to 'Sign_out', destroy_user_session_path, method: :delete %>
-
+<br><br><br>
 <% @post.each do |f| %>
 Post: <%=link_to f.body, post_path(f.id) %> <br>
 <% f.comments.each do |c| %>
