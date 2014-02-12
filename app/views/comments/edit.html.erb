@@ -1,0 +1,5 @@
+<h1>Edit comment</h1>
+
+<%= form_for [@post, @comment] do |f| %>
+	<%= f.text_field :body, placeholder: "Comment" %>
+<% end %>
