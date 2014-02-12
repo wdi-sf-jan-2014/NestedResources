@@ -4,7 +4,7 @@
 <ul>
 <% @posts.each do |post| %>
   <li>
-    <%= post.body %> --- <%= post.link %>
+    <%= link_to post.body, post_path(post) %> --- <a href='<%= post.link %>' target="_blank">LINK</a>
   </li>
 <% end %>
 </ul>

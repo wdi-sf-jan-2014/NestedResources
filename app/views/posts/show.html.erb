@@ -1,1 +1,11 @@
 SHOW ME THIS POST!
+
+<h3><%= @post.body %></h3>
+
+<h5>Comments</h5>
+
+<% @post.comments.each do |c| %>
+  <div>
+    <%= c.comment %>
+  </div>
+<% end %>
