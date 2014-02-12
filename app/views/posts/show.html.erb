@@ -17,11 +17,15 @@
   <div class='col-sm-1'></div>
   <div class='col-sm-5'>
     <fieldset disabled>
-      <% @post.comments.each do |comment| %>
-        <div class="form-group">
-          <%= label_tag(:body, "Comment #{comment.id}") %>
-          <%= text_area_tag(:body, comment.body, size: "24x3", class: "form-control") %>
-        </div>
+      <% unless @post.comments.empty? %>
+        <% @post.comments.each do |comment| %>
+          <div class="form-group">
+            <%= label_tag(:body, "Comment #{comment.id}") %>
+            <%= text_area_tag(:body, comment.body, size: "24x3", class: "form-control") %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>no comments...</p>
       <% end %>
     </fieldset>
   </div>

@@ -12,7 +12,15 @@ class PostsController < ApplicationController
 
   # POST, finalize the creation of new Post (persist attributes)
   def create
-  	post = Post.create(params[:post].permit(:body, :link))
+  	# collects nested attributes, for post & comment, from params
+  	# new_post = params[:post].permit!  # ! permits the entire hash of values (TODO: be more granular with security)
+  	new_post = params[:post].permit(:body, :link)
+
+  	# SJM TODO - need to correct syntax/format of nested hash, with rockets is rejected by create
+  	# currently won't save comment
+
+  	# persits nested attributes for post & comment
+  	post = Post.create(new_post)
   	redirect_to post
   end
 
