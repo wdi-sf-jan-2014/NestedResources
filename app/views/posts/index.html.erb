@@ -1,5 +1,5 @@
 <h1>List of Posts</h1>
 <% @posts.each do |p| %>
 	<h2><%= link_to p.body, p.link %></h2>
-	<h4><%= p.comments.count %> Comments</h4>
+	<h4><%= link_to "#{p.comments.count} Comments", post_path(p.id) %></h4>
 <% end %>

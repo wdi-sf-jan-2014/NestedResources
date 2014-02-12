@@ -1,0 +1,16 @@
+<h1>Create New Post</h1>
+
+<%= form_for @post do |f| %>
+	<%= f.text_field :link, placeholder: "Paste URL" %>
+	<br />
+	<%= f.text_area :body, placeholder: "Share youru story!" %>
+	<br /><br />
+
+	<%= fields_for :comment do |form| %>
+		<% form.text_area :body, placeholder: "First Comment" %>
+	<% end %>
+
+	<br />
+<%= f.submit "Post" %>
+
+<% end %>

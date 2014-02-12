@@ -16,6 +16,7 @@ describe "Posts" do
       response.body.should include("http://generalassemb.ly")
       response.body.should include("General Assembly is a place to learn")
     end
+
   end
 
   describe "POST /posts" do

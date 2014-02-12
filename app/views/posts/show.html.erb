@@ -2,3 +2,14 @@
 
 <h3><%= link_to @post.body, @post.link %></h3>
 <h5><%= @post.link %></h5>
+
+<h3>Comments</h3>
+<% @post.comments.each do |comment| %>
+	<h5><%= comment.body %></h5>
+<% end %>
+
+<%= form_for :comment, url: "/posts/#{@post.id}/comments" , method: :post do |f| %>
+	<%= f.text_area :body, placeholder: "Post your comments" %>
+	<br />
+	<%= f.submit "Comment" %>
+<% end %>
