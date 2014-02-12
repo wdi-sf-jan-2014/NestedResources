@@ -1,13 +1,28 @@
 <h1>Post <%= @post.id %></h1>
-<div class='col-sm-6'>
-  <fieldset disabled>
-	<div class="form-group">
-      <%= label_tag(:link, "Link") %>
-      <%= text_area_tag(:link, @post.link, size: "30x2", class: "form-control") %>
-	</div>
-	<div class="form-group">
-      <%= label_tag(:body, "Body") %>
-      <%= text_area_tag(:body, @post.body, size: "30x3", class: "form-control") %>
-	</div>
-  </fieldset>
+<div class='row'>
+  <div class='col-sm-6'>
+    <fieldset disabled>
+  	<div class="form-group">
+        <%= label_tag(:link, "Link") %>
+        <%= text_area_tag(:link, @post.link, size: "30x2", class: "form-control") %>
+  	</div>
+  	<div class="form-group">
+        <%= label_tag(:body, "Body") %>
+        <%= text_area_tag(:body, @post.body, size: "30x3", class: "form-control") %>
+  	</div>
+    </fieldset>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-sm-1'></div>
+  <div class='col-sm-5'>
+    <fieldset disabled>
+      <% @post.comments.each do |comment| %>
+        <div class="form-group">
+          <%= label_tag(:body, "Comment #{comment.id}") %>
+          <%= text_area_tag(:body, comment.body, size: "24x3", class: "form-control") %>
+        </div>
+      <% end %>
+    </fieldset>
+  </div>
 </div>
