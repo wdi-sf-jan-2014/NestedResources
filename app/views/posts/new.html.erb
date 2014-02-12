@@ -1,2 +1,10 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div>
+<%= form_for @post do |f| %>
+
+	<%= f.text_field :link, placeholder: "Share a link" %><br>
+	<%= f.text_field :body, placeholder: "Tell us about your submission" %>
+
+	<%= f.submit %>
+
+<% end %>
+</div>
