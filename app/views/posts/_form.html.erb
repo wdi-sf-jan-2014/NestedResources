@@ -1,0 +1,7 @@
+<div class"container form">
+	<%= form_for @post do |p| %>
+		<%= p.text_field :link, placeholder: "paste link here" %>
+		<%= p.text_field :body, placeholder: "what is on your mind?" %>
+		<%= p.submit %>
+	<% end %>
+</div>
