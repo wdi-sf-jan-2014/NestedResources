@@ -1,0 +1,9 @@
+<h1>Edit Posts</h1>
+
+
+
+<%= form_for [@post] do |p| %> 
+  <%= p.text_field :link %>
+  <%= p.text_field :body %>
+  <%= p.submit %>
+<% end %>
