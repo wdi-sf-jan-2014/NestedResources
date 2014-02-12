@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = @posts_without_comments
+    @posts = Post.all
   end
 
   def new
