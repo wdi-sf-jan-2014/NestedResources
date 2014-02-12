@@ -1,5 +1,7 @@
 NestedResources::Application.routes.draw do
 
+  get "profiles/index"
+  get "profiles/show"
   get "comments/index"
   get "comments/create"
   get "comments/show"
