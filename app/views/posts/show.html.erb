@@ -1,0 +1,13 @@
+<h1><%= @post.title %></h1>
+
+<h5>add a comment:</h5>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :say %>
+  <%= f.submit %>
+<%end%>
+
+<ul>
+  <% @post.comments.each do |comment|  %>
+  <li><%= comment.say %></li>
+  <% end %>
+</ul>
