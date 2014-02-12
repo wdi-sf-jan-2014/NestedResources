@@ -1,2 +1,11 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>All Posts:</h1>
+
+<% @posts.each do |post| %>
+<ul>
+	<li>Link: <%=post.link%>, Body: <%=post.body%></li>
+	<li><%= link_to "See post", post_path(post.id), method: :get%></li>
+
+</ul>
+<% end %>
+
+<%= button_to "Create a new post", new_post_path, method: :get %>

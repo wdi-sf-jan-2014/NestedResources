@@ -1,0 +1,14 @@
+<h3>Link: <%=@post.link%></h3>
+<h3>Post: <%=@post.body%></h1>
+
+<% if @comments.nil? %>
+
+<% else %>
+
+	<%= @comments.body%>
+
+<%end%>
+
+<%= button_to "Add a new comment", new_post_comment_path(@post.id), method: :get %>
+
+<%= button_to "Home", root_path, method: :get %>

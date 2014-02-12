@@ -1,0 +1,7 @@
+<h1>New Post!</h1>
+
+<%= form_for @post do |p| %>
+	<%= p.text_field :link, placeholder: "Link" %><br>
+	<%= p.text_area :body, placeholder: "What about that link?" %><br>
+	<%= p.submit %>
+<% end %>

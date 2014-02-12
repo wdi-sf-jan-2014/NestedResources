@@ -1,0 +1,5 @@
+<h1>A New Comment for <%=@post.link%></h1>
+<%= form_for [@post, @comment] do |c| %>
+	<%= c.text_area :body, placeholder: "What about that link?" %><br>
+	<%= c.submit %>
+<% end %>
