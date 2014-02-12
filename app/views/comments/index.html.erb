@@ -1,0 +1,12 @@
+<h1>
+    <% if @parent.link %>
+        <a href="<%= @parent.link %>"><%= @parent.body %></a>
+    <% else %>
+        <%= @parent.body %>
+    <% end %>
+</h1>
+<% @comments.each do |c| %>
+    <div>
+        <%=  c.body %> by <%= c.user.email %> at <%= c.created_at %><br/>
+    </div>
+<% end %>

@@ -1,0 +1,8 @@
+<h1><%= @post.body || "New Post" %></h1>
+    <%= form_for [current_user, @post] do |f| %>
+    <%= f.label "Body" %>
+    <%= f.text_field :body %>
+    <%= f.label "Link"%>
+    <%= f.text_field :link %>
+    <%= f.submit %>
+    <% end %>
