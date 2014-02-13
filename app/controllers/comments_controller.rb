@@ -25,5 +25,23 @@ class CommentsController < ApplicationController
     comment_id = params[:id]
     @comment = comments.find(comment_id)
   end
+
+  def edit
+    @post = Post.find(params[:post_id])
+    comments = @post.comments
+    comment_id = params[:id]
+    @comment = comments.find(comment_id)
+    render :edit
+  end
+
+  def update
+    @post = Post.find(params[:post_id])
+    comments = @post.comments
+    comment_id = params[:id]
+    comment = comments.find(comment_id)
+    new_commentable_body = params.require(:comment).permit(:body)
+    new_commentable = comment.comments.build(new_commentable_body)
+    redirect_to post_comment_path 
+  end
   
 end
