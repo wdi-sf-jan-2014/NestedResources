@@ -9,6 +9,9 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'sidekiq'
+
+gem 'redis'
 
 
 gem 'sass-rails', '~> 4.0.0'
