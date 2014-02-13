@@ -9,12 +9,15 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @parent.comments.build(comment_params)
-      if @comment.save
-        redirect_to post_path(@comment.post)
-      else 
-        render :new
-      end
+
+    new_comment = @parent.comments.build(comment_params)
+
+    if new_comment.save
+      redirect_to root_url
+    else
+      render :new
+    end
+    
     # post = Post.find(params[:post_id])
     # new_comment = post.comments.create(comment_params) 
     # # current_user.comments << new_comment
@@ -52,8 +55,6 @@ class CommentsController < ApplicationController
   def get_parent
     @parent = Post.find_by_id(params[:post_id]) if params[:post_id]
     @parent = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
-     
-    redirect_to root_path unless defined?(@parent)
   end
 
 end
