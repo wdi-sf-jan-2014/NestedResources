@@ -1,10 +1,16 @@
-Post
+<h2>Post</h2>
+
 <div><%= @post.link %></div>
 <div><%= @post.body %></div>
 
 <div>
   Comments
   <% @post.comments.each do |comment| %>
-    <div><a href="<%= comment_path(comment)%>"><%= comment.body %></a></div>
+    <div><a href="<%= post_comment_path(@post.id, comment.id)%>"><%= comment.body %></a></div>
   <% end %>
 </div>
+
+<%= form_for :comment, url: "/posts/#{@post.id}/comments", method: :post do |f| %>
+    <%= f.text_area :body, placeholder: "comment on post" %><br>
+    <%= f.submit "Submit Comment" %>
+  <% end %>

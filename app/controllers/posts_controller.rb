@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!
+ 
   def index
     @posts = current_user.posts
   end
@@ -17,4 +18,5 @@ class PostsController < ApplicationController
   def show
     @post = current_user.posts.find(params[:id])
   end
+
 end
