@@ -15,8 +15,11 @@ class PostsController < ApplicationController
 
   def create
     # binding.pry
-  	post = Post.create(params[:post].permit(:link, :body))
-    post.comments.create(params[:comment].permit(:body)) unless params[:comment][:body].blank?
+  	post = current_user.posts.create(params[:post].permit(:link, :body))
+    unless params[:comment][:body].blank?
+      comment = post.comments.create(params[:comment].permit(:body)) 
+      current_user.comments << comment
+    end
   	redirect_to post_path(post)
   end
 
