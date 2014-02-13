@@ -15,7 +15,9 @@ class PostsController < ApplicationController
   def create
     if user_signed_in?
         post = current_user.posts.create(post_params)
+        PostLinkWorker.perform_async(post.id)
         redirect_to post
+        
     else
         redirect_to new_user_session_path
     end

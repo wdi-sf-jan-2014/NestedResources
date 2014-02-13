@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
     def index
         @parent = parent
        @comments = @parent.comments
+       #raise
     end
 
     def new

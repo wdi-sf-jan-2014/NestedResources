@@ -1,2 +1,2 @@
-<%= (@comment.comment.body if @comment.comment) ||  (@comment.post.body if @comment.post) %></br>
+<%= (@comment.commentable.body %></br>
 <%= render @comment %>
