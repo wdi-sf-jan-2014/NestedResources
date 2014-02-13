@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-  	id = params[:id]
+  	id = params[:comment_id]
   	@comment = Comment.find(id)
+end
 end
