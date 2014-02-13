@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>NestedResources</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="bootsrap.min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<% unless user_signed_in?   %>
+    <div class="notice"><%= notice %></div>
+    <div class="alert"><%= alert %></div>
+<% end %>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
 <%= yield %>
+
 
 </body>
 </html>

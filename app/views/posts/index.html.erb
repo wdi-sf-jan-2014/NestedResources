@@ -1,2 +1,57 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
+<div class="row">
+	<div class="col-sm-2">
+		<%= render "layouts/navigation"%>
+	</div>
+
+	<div class="col-sm-10">
+		<div class="container all-posts">
+			<% @posts.each do |post| %>
+				<div class="panel panel-default">
+					<%= link_to(post) do %>
+						<div class="panel-heading">
+							<%= post.body %>
+							<a href="<%=post.link%>">
+								<span class="glyphicon glyphicon-link"></span>
+							</a>
+						</div>
+					<% end %>
+						<ul class="list-group">
+							<% if not post.comments.empty? %>
+								<% post.comments.each do |comment| %>
+									<li class="list-group-item">
+									<%= link_to post_comment_path(post.id, comment.id) do %>
+										<%= comment.body %>
+										<% if not comment.child_comments.empty? %>
+									</br>
+										-------------------------------------
+										<div>
+											<% comment.child_comments.each do |child| %>
+												<%= child.body %>
+											</br>
+												-------------------------------------
+												</br>
+											<% end %>
+										</div>
+										<% end %>
+									<% end %>
+										<div>
+											<% @post = post %>
+											<% @comment = comment %>
+											<% @child_comment = comment.child_comments.new() %>
+											<%= render "child_comments/form" %>
+										</div>
+									</li>				
+								<% end %>
+							<% end %>
+						</ul>
+						<div class="panel-footer">
+								<% @post = post %>
+								<% @comment = @post.comments.new() %>
+								<%= render "comments/form" %>
+						</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

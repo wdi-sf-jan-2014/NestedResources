@@ -1,0 +1,6 @@
+<div class="container form">
+	<%= form_for [@post, @comment] do |p| %>
+		<%= p.text_area :body, placeholder: "write a comment..." %>
+		<%= p.submit %>
+	<% end %>
+</div>

@@ -36,3 +36,13 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+gem 'typhoeus'
+
+gem 'unicorn'
+
+gem 'unicorn-rails', :groups => [:development, :test]
+
+gem 'sidekiq'
+
+gem 'multi_json', '1.5.1'

@@ -11,10 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211224156) do
+ActiveRecord::Schema.define(version: 20140213082239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "child_comments", force: true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "child_commentable_id"
+    t.string   "child_commentable_type"
+    t.integer  "comment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "child_comments", ["comment_id"], name: "index_child_comments_on_comment_id", using: :btree
+  add_index "child_comments", ["user_id"], name: "index_child_comments_on_user_id", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.string   "link"
+    t.string   "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "http_response"
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
