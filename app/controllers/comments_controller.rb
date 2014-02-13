@@ -1,16 +1,18 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
-    @comment = Comment.find(params[:comment_id])
+    @post = Post.find(params[:post_id])
   end
 
   def show
-    @comment = Comment.find(params[:comment_id])
-    @post = @comment.posts.find(params[:id])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
   end
 
   def new
-    @comment = Comment.find(params[:comment_id])
-    @post = @comment.posts.new()
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new()
   end
 
   def create
@@ -19,7 +21,7 @@ class CommentsController < ApplicationController
     redirect_to post_comment_path(@post, @comment)
   end
 
-  def delete
+  def destroy
     comment = Comment.find(params[:id])
     comment.destroy
     redirect_to root_path

@@ -1,4 +1,15 @@
 body 	{
 
 	font-family: 'Inconsolata', sans-serif;
+
+
+}
+
+.row	{
+	margin-top: 50px;
+}
+
+.panel-heading a	{
+
+	color: black;
 }

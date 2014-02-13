@@ -1,12 +1,39 @@
-Posts:
 
-<div class="container all-posts">
-	<% @posts.each do |post| %>
-		<%= link_to(post) do %>
-			<div class="container single-posts">
-				<%= post.body %>
-				<%= link_to "link", post.link %>
-			</div>
-		<% end %>
-	<% end %>
+<div class="row">
+	<div class="col-sm-2">
+		<%= render "layouts/navigation"%>
+	</div>
+
+	<div class="col-sm-10">
+		<div class="container all-posts">
+			<% @posts.each do |post| %>
+				<div class="panel panel-default">
+					<%= link_to(post) do %>
+						<div class="panel-heading">
+							<%= post.body %>
+							<a href="<%=post.link%>">
+								<span class="glyphicon glyphicon-link"></span>
+							</a>
+						</div>
+					<% end %>
+						<ul class="list-group">
+							<% if not post.comments.empty? %>
+								<% post.comments.reverse.each do |comment| %>
+									<li class="list-group-item">
+									<%= link_to post_comment_path(post.id, comment.id) do %>
+										<%= comment.body %>
+									<% end %>
+									</li>				
+								<% end %>
+						</ul>
+						<div class="panel-footer">
+								<% @post = post %>
+								<% @comment = @post.comments.new() %>
+								<%= render "comments/form" %>
+							<% end %>
+						</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
