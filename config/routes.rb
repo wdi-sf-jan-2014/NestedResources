@@ -4,7 +4,7 @@ NestedResources::Application.routes.draw do
   post "/posts/:post_id/comments/:id", to: "comments#create_comment", as: "create_comment"
 
   resources :posts do
-    resources :comments, only: [:show]
+    resources :comments
   end
 
   root to: 'posts#index'
