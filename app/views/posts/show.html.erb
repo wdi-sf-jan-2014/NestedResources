@@ -1,0 +1,8 @@
+Post
+
+<div>
+  Comments
+  <% @post.comments.each do |comment| %>
+    <div><a href="<%= post_comment_path(@post,comment)%>"><%= comment.body %></a></div>
+  <% end %>
+</div>

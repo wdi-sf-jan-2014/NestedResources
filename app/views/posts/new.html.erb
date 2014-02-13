@@ -1,0 +1,13 @@
+<h1>New Post</h1>
+
+<%= form_for @post do |f| %>
+  <%= f.label :link %></br>
+  <%= f.text_field :link %> </br>
+  <%= f.label :body %></br>
+  <%= f.text_field :body %> </br>
+  <%= f.fields_for :comments, @post.comments.build do |c| %>
+    <%= c.label :body, 'Comment text' %></br>
+    <%= c.text_field :body %></br>
+  <% end %>
+  <%= f.submit "Add" %>
+<% end %>
