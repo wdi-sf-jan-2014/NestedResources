@@ -11,17 +11,11 @@ class CommentsController < ApplicationController
   def create
 
     new_comment = @parent.comments.build(comment_params)
-
     if new_comment.save
       redirect_to root_url
     else
       render :new
     end
-    
-    # post = Post.find(params[:post_id])
-    # new_comment = post.comments.create(comment_params) 
-    # # current_user.comments << new_comment
-    # redirect_to post_path(post)
   end
 
   def show
@@ -44,13 +38,18 @@ class CommentsController < ApplicationController
   def destroy
   end
 
+  def upvote
+    session[:return_to] ||= request.referer
+    comment = @parent.comments(params[:id])
+    comment.count
+    redirect_to session.delete(:return_to)
+  end
+
   private
 
   def comment_params
     params.require(:comment).permit(:comment_body)
   end
-
-  protected
 
   def get_parent
     @parent = Post.find_by_id(params[:post_id]) if params[:post_id]

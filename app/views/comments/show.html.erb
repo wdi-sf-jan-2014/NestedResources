@@ -1,5 +1,5 @@
 <%= @comment.comment_body %><br>
-
+<%= @comment.counter %> <%= button_to "vote", {method: :upvote} %>
 <%= link_to "Add Comment", new_comment_comment_path(@comment) %>
 
 <div>
@@ -7,6 +7,6 @@ Other Comments
 </div>
 
 <% @comment.comments.each do |comment| %>
- <%= comment.comment_body %>
+ 	<%= comment.comment_body %><%= link_to "View Comment", comment_comment_path(@comment, comment) %><br>
 <% end %>
 

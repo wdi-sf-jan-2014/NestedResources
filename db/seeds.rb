@@ -21,11 +21,12 @@ posts << Post.create(name: "A Pen?", body: "Someone left their pen.... Let's try
 # users[2].comments << comments[3]
 # users[0].comments << comments[4]
 
-posts[1].comments.create(comment_body: "Oooooooo! What kind of pen is it?")
-posts[1].comments.create(comment_body: "ZOMG! it could be mine!")
-posts[1].comments.create(comment_body: "Are you sure it's yours? PROVE IT!")
-posts[1].comments.create(comment_body: "it's pink with a fluffy unicorn!")
-posts[1].comments.create(comment_body: "I think it's Darren's pen....")
+posts[1].comments.create(comment_body: "Oooooooo! What kind of pen is it?", counter: 0)
+posts[1].comments.create(comment_body: "ZOMG! it could be mine!", counter: 0)
+posts[1].comments.create(comment_body: "Are you sure it's yours? PROVE IT!", counter: 0)
+posts[1].comments.create(comment_body: "it's pink with a fluffy unicorn!", counter: 0)
+posts[1].comments.create(comment_body: "I think it's Darren's pen....", counter: 0)
+
 
 users[1].posts << posts[0]
 users[0].posts << posts[1]
