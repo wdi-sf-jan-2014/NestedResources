@@ -1,0 +1,10 @@
+New Post
+
+<%= form_for @post do |f| %>
+	<%= f.text_field :link, placeholder: "Enter Link"%>
+	<%= f.text_field :body, placeholder: "Enter Body"%>
+		<%= f.fields_for :comments, @post.comments.build do |b| %>
+			<%= b.text_field :body, placeholder: "Enter Initial Comment:" %>
+		<%end%>
+	<%= f.submit %>
+<%end%>

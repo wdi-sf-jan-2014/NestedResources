@@ -1,0 +1,11 @@
+
+	<%=@post.link%><br>
+	<%=@post.body%><br>
+	Comments: <%=link_to "Comment on this Post",new_post_comment_path(@post)%><br>
+	<% for c in @post.comments %>
+		<%=c.body%><%=link_to "Link to Comment",post_comment_path(@post,c)%><br>
+		<% for c2 in c.comments %>
+		   &nbsp; &nbsp; <%=c2.body%> <br>
+	    <%end%>
+	<%end%>
+

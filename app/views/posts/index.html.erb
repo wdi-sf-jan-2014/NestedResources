@@ -1,2 +1,22 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%=link_to "Submit a Post",new_post_path%>  
+
+<%if user_signed_in? %>
+Welcome <%= current_user.email%>! 
+<%=link_to "Sign Out", destroy_user_session_path, method: :delete%>
+<%end %>
+
+<br><br>  
+
+<%for i in @posts %>
+	Link: <%=i.link%>  <%=link_to "Link to Post",post_path(i)%>
+					<%=link_to "Edit Post",edit_post_path(i)%><br>
+	Body: <%=i.body%><br>
+	Comments: <%=link_to "Comment on this Post",new_post_comment_path(i)%><br>
+	<% for c in i.comments %>
+		<%=c.body%> <%=link_to "Link to Comment",post_comment_path(i,c)%><br>
+		<% for c2 in c.comments %>
+		   &nbsp; &nbsp; <%=c2.body%><br>
+	    <%end%>
+	<%end%>
+	<br>
+<%end%>
