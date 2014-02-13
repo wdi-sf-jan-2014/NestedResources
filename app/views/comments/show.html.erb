@@ -5,9 +5,15 @@
 <br>
 <%=@comment.user_id%> : <%=@comment.commentbody%>
 </div>
+<%=form_for [@comment, @comment.comments.build] do |f| %>
+<%= f.label :subcomment, "Add subcomment" %>
+<%= f.text_field :commentbody %>
+<%= f.submit %>
+
 
 <br>
 <%=link_to "back to post", post_comments_path%>
 <br>
 
 <%=link_to "edit comment", edit_post_comment_path %>
+
