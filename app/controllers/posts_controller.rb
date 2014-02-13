@@ -18,3 +18,5 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
   end
 end
+
+#comment
