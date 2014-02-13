@@ -3,4 +3,5 @@
 <%= form_for [@post, @comment] do |f| %>
 	<%= f.text_area :body, placeholder: 'write comment here' %>
 	<%= f.submit 'Create' %>
+
 <% end %>

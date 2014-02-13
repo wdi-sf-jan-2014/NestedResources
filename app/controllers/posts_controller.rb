@@ -6,37 +6,33 @@ class PostsController < ApplicationController
   end  
 
   def new
-    @post = Post.new()
+    @post = Post.new
   end
 
   def create
-    new_post = params[:post].permit(:link, :body, :comments_attributes => [:body])
-    @post = Post.create(new_post)
-    redirect_to post_path(@post)   
+    new_post = params.require(:post).permit(:link, :body, comments_attributes: [:body])
+    @post = Post.new(new_post)
 
+    if @post.save
+      redirect_to posts_path
+    else
+      render :action => :new
+    end
   end
 
   def show
-
     @post = Post.find(params[:id])
-    
-    if @post.comments.nil?
-      @comments = @post.comments.find(@post.comments)
-    end
-
+    @post_comments = @post.comments
   end
   
   def edit 
     @post = Post.find(params[:id])
-   
   end
 
   def update
-
     updated_post = params[:post].permit(:link, :body)
     @post = Post.find(params[:id]).update_attributes(updated_post)
     redirect_to post_path
-
   end
 
 

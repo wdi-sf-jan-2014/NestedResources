@@ -3,5 +3,13 @@
 	Comment: <%= @comment.body%>
 </div>
 
-<%= link_to "Edit this comment", edit_post_comment_path%></br>
-<%= link_to "Back to post", post_path(@post)%>
+<br><%= link_to "Edit this comment", edit_post_comment_path %></br>
+
+<% @comment_comments.each do |c| %>
+	<%= c.body %>
+<% end %></br>
+
+
+<br><%= link_to "Comment on this comment", post_comment_path, :method => :patch %></br>
+
+<br><%= link_to "Back to post", post_path(@post) %>

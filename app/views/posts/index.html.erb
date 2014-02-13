@@ -8,13 +8,9 @@
 
 <p><%= link_to "Create a new Post", new_post_path%> </p>
 <div>
-<% @posts.each do |p| %>
-	<%= p.link %> <%=link_to "Link to this post", post_path(p) %></br>
-	<%= p.body %> <%=link_to "Comment on this post", new_post_comment_path(p)%></br>
-
-	<% p.comments.each do |c| %>
-		Comment <%=c.id %>: <%= c.body %> <%= link_to "Link to this comment", post_comment_path(p, c) %></br>
-	<% end %></br>
-
-<% end %>
+<% @posts.each do |p| %></br>
+	<a href= "<%= post_path(p) %>"><%= p.link %> </a></br>
+	<%= p.body %></br> 
+	<%=link_to "Comment on this post", new_post_comment_path(p)%></br>
+	<% end %>
 </div>
