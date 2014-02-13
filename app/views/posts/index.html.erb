@@ -6,5 +6,6 @@
 <% @post.each do |title| %>
     <ul>
         <li><%= title.title %></li>
+        <li><a href="http://<%= title.link %>"></a></li>
     </ul>
 <% end %>
