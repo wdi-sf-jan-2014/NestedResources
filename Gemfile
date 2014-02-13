@@ -38,3 +38,5 @@ group :doc do
 end
 
 gem "sidekiq"
+
+gem 'typhoeus'
