@@ -8,4 +8,14 @@ class CommentsController < ApplicationController
   	id = params[:comment_id]
   	@comment = Comment.find(id)
 end
+
+  def create
+  	id = params[:comment_id]
+  	comment = Comement.find(id)
+  	creating = params[:comments].require(#:comments)
+  	comment.create(creating)
+  	redirect_to something_something_path
 end
+
+end
+
