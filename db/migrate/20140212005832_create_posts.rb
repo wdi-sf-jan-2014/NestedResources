@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.text :link
       t.text :body
-      t.integer :user_id
+      t.references :user
 
       t.timestamps
     end
