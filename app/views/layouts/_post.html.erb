@@ -1,0 +1,10 @@
+_post.html.erb
+
+<!-- a post, with a potentially nested comment  -->
+<%= form_for [@post, @comment] do |f| %>  
+
+	<%= f.text_field :body, :placeholder => "what's on your mind"%>
+	<%= f.text_field :link, :placeholder => "add your sweet link"%>
+
+	<%= f.submit "post" %>
+<%= end %>
