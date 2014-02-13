@@ -1,11 +1,21 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
 gem 'pg'
+
+gem 'nokogiri'
+
+gem 'typhoeus'
+
+gem 'unicorn'
+
+gem 'unicorn-rails', :groups => [:development, :test]
+
+gem 'sidekiq'
 
 gem 'devise'
 

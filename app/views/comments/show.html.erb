@@ -1,0 +1,16 @@
+<%= button_to "ALL POSTS", posts_path, method: :get %>
+
+<div>Main Post: <%= link_to @post.body, post_path(@post), method: :get %></div>
+<h3>Main Comment:</h3>
+<h1><%= @comment.comment_body %></h1>
+<h4>Comments</h4>
+<% @comment.comments.each do |c| %>
+	<div><%= link_to c.comment_body, post_comment_path(@post, c) %></div>
+	<div><%= c.comments.count %> Comments</div><br />
+<% end %>
+<br />
+
+<%= form_for :comment, url: "/posts/#{@post.id}/new_comment/#{@comment.id}", method: :post do |f| %>
+	<%= f.text_area :comment_body, placeholder: "Enter comment", value: nil %><br>
+	<%= f.submit "Submit Comment" %>
+<% end %>

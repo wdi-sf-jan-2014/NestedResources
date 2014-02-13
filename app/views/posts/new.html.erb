@@ -1,0 +1,12 @@
+<h1>New Post</h1>
+
+<%= form_for(@post) do |f| %>
+	<%= f.text_field :link, placeholder: "Paste URL" %><br>
+	<%= f.text_area :body, placeholder: "Body of text" %><br>
+
+	<%= fields_for :comment do |c| %>
+		<%= c.text_area :comment_body, placeholder: "Enter comment" %><br>
+	<% end %>
+	
+	<%= f.submit %>
+<% end %>
