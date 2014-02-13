@@ -22,7 +22,25 @@
 									<li class="list-group-item">
 									<%= link_to post_comment_path(post.id, comment.id) do %>
 										<%= comment.body %>
+										<% if not comment.child_comments.empty? %>
+									</br>
+										-------------------------------------
+										<div>
+											<% comment.child_comments.each do |child| %>
+												<%= child.body %>
+											</br>
+												-------------------------------------
+												</br>
+											<% end %>
+										</div>
+										<% end %>
 									<% end %>
+										<div>
+											<% @post = post %>
+											<% @comment = comment %>
+											<% @child_comment = comment.child_comments.new() %>
+											<%= render "child_comments/form" %>
+										</div>
 									</li>				
 								<% end %>
 							<% end %>

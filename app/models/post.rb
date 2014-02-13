@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
-	belongs_to :postable, polymorphic:true
-	has_many :comments, as: :commentable
+	
+     belongs_to :user
+     has_many :comments, as: :commentable, dependent: :destroy
 end

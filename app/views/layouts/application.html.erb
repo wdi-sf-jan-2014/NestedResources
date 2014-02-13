@@ -12,6 +12,11 @@
 </head>
 <body>
 
+<% unless user_signed_in?   %>
+    <div class="notice"><%= notice %></div>
+    <div class="alert"><%= alert %></div>
+<% end %>
+
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
