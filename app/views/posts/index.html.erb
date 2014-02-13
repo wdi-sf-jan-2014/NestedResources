@@ -1,10 +1,11 @@
 <h1>Raddit</h1>
 
-<ul>
+
   <% @posts.each do |p| %>
-    <li> <a href="<%=p.link%>"><%= p.link%></a></li>
-    <li> <%= link_to p.body, post_path(p) %> </li>
+    <ul>
+      <li> <%= link_to p.body, post_path(p) %></li>
+      <li><%= p.link%></li>
+    </ul>
   <% end %>
-</ul>
 
 <%= button_to "new post", new_post_path, method: :get %>

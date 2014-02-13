@@ -1,8 +1,14 @@
 <h3><a href=<%= @post.link %>><%= @post.body %></a></h3>
 
-<% @comments.each do |c| %>
-  <li><%= c.body %> </li>
+<ul>
+  <% @comments.each do |c| %>
+    <li><%= c.body %>
+<!--       <%# c.comments.each do |com| %>
+        <%#=com.body %>
+      <%# end %> -->
+    </li>
   <% end %>
+</ul>
 
 <%= render "/comments/new_comment" %>
 
