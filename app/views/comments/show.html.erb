@@ -1,5 +1,12 @@
 <%= @comment.comment_body %><br>
 
-<%= link_to "Edit Comment", edit_post_comment_path(@post, @comment) %><br>
-<%= link_to 'Delete', post_path(@post), :method => :destroy, :confirm => "Are you sure?" %>
-<%= link_to "Back", post_path(@post) %>
+<%= link_to "Add Comment", new_comment_comment_path(@comment) %>
+
+<div>
+Other Comments 
+</div>
+
+<% @comment.comments.each do |comment| %>
+ <%= 
+<%end %>
+
