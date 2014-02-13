@@ -11,3 +11,39 @@
  *= require_self
  *= require_tree .
  */
+.comments-all {
+	margin-top: 30px;
+}
+.comment-wrap {
+	margin: 10px 0px;
+	padding: 5px 10px 15px 15px;
+}
+
+.page-heading  {
+	margin-top: 80px;
+}
+
+.nav-btn {
+	margin-top: 7px
+}
+
+.container h2 {
+	margin-top: 80px;
+}
+
+.comment-count {
+	color: #999;
+}
+
+.last-five {
+	margin-top: 70px;
+}
+
+.reply-btn {
+	margin-top: 15px;
+}
+
+.comment-wrap {
+	list-style-type: none;
+	margin-left: -45px
+}

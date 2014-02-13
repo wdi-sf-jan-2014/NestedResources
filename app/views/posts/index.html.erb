@@ -1,2 +1,24 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<!-- Form to post links -->
+<h1 class="page-heading">Post a link</h1>
+<%= form_for @post do |f| %>
+	<%= f.text_field :body, placeholder: "Title", class: "form-control" %><br/>
+	<%= f.text_field :link, placeholder: "http://", class: "form-control" %><br />
+	<%= f.fields_for :comments, @post.comments.build do |b| %>
+          <%= b.text_area :body, placeholder: "Your comments", class: "form-control" %><br />
+     <% end %>
+	<%= f.submit class: "btn btn-primary btn-lg" %>
+<% end %>
+
+<!-- Last five posts -->
+<% unless @posts.size == 0 %>
+<div class="last-five">
+	<h1>Last five posts on Studdit</h1>
+	<% i = 1 %>
+	<% @posts.each do |post| %>
+		<h3><%= i %>. <%= link_to post.body, post_path(post) %></h3> 
+		<%= render partial: 'shared/bylines', locals: { post: post } %>
+		
+		<% i +=1 %>
+	<% end %>
+</div>
+<% end %>
