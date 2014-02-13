@@ -2,4 +2,7 @@
 
 <h3>Comment:</h3>
 <%= @comment.body %><br><br>
+<% @comment.comments.each do |comment| %>
+	<%= comment.body %><br>
+<%end%>
 <%= link_to "Add a comment", new_comment_comment_path(@comment) %><br>

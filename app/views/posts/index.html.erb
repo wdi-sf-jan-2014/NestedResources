@@ -5,9 +5,9 @@
 	<% if post.link == nil %>
 		<%= post.link = "Link: N/A" %><br>
 	<% else %>
-	Link: <a href="https://<%=post.link%>"><%= post.link%></a><br>
+	<a href="<%=post_path(post.id)%>"><%= post.link%></a><br>
 	<% end %>
-	Post: <%= link_to post.body, post_path(post.id) %><br>
+	<%= post.body %><br>
 	Comments: <br>
 	<% post.comments.each do |comment| %>
 		<%= comment.body %> <br>

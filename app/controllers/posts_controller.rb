@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   end
 
   def create
-  	post = Post.create(params.require(:post).permit(:body, :link, :comments_attributes=>[:body]))
+  	post = current_user.posts.create(params.require(:post).permit(:body, :link, :comments_attributes=>[:body]))
+    # LinksWorker.perform_async(post.id)
   	redirect_to post
   end
 
