@@ -1,0 +1,14 @@
+class CreateComments < ActiveRecord::Migration
+  def change
+    create_table :comments do |t|
+      t.text :body
+      # t.references :post
+      t.references :user
+
+      t.belongs_to :commentable, polymorphic: true
+
+      t.timestamps
+    end
+    add_index :comments, [:commentable_id, :commentable_type]
+  end
+end

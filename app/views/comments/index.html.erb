@@ -1,0 +1,10 @@
+comments/index.html.erb
+<h3><%= @post.body %></h3>
+<% @post.comments.each do |comment| %>
+<a href="/posts/<%=@post.id%>/comments/<%=comment.id%>"><div><%= comment.body %></div></a>
+
+<% end %>
+<br>
+<%= link_to "Leave a comment", new_post_comment_path %>
+<%= link_to "See all posts", posts_path %>
+<%#= link_to "delete post", post_path, {action=>"delete"}%>
