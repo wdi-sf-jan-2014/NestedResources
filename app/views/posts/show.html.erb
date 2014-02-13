@@ -6,6 +6,9 @@
   <h4>Comments:</h4>
   <% @post.comments.each do |comment| %>
     <div><a href="<%= post_comment_path(@post.id, comment.id)%>"><%= comment.body %></a></div>
+      
+
+
   <% end %>
 </div>
 

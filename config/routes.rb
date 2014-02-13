@@ -2,8 +2,7 @@ NestedResources::Application.routes.draw do
   devise_for :users
   root to: 'posts#index'
 
-  # resources :posts, only: [:index, :new, :create, :show]
-  # resources :comments, only: [:show, :create]
+  post "/posts/:post_id/comments/:id", to: "comments#create_comment", as: "create_comment"
 
   resources :posts do
     resources :comments, only: [:show, :create]
