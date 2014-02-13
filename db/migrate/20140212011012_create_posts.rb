@@ -1,8 +1,9 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.text :link
+      t.string :link
       t.text :body
+      t.references :user, index: true
 
       t.timestamps
     end

@@ -1,23 +1,20 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!
   def index
-  	@posts = Post.all
+    @posts = current_user.posts
   end
 
   def new
-  	@post = Post.new
+    @post = Post.new 
   end
 
   def create
-  	new_post = params.require(:post).permit(:link, :body)
-  	post = Post.create(new_post)
-  	redirect_to post
+    post_params = params.require(:post).permit(:link, :body, comments_attributes: [ :body ])
+    post = current_user.posts.create(post_params)
+    redirect_to post_path(post.id)
   end
 
   def show
-  	@post = Post.find(params[:id])
-  end
-
-  def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 end

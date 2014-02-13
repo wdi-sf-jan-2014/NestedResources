@@ -1,4 +1,8 @@
-<h1>Show Post</h1>
+Post
 
-<%= @post.body %>
-<%= @post.link %>
+<div>
+  Comments
+  <% @post.comments.each do |comment| %>
+    <div><a href="<%= post_comment_path(@post,comment)%>"><%= comment.body %></a></div>
+  <% end %>
+</div>
