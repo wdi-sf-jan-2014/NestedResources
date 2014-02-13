@@ -30,9 +30,19 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'quiet_assets'
 end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+
+gem 'nokogiri'
+
+gem 'typhoeus'
+gem 'unicorn'
+
+gem 'unicorn-rails', :groups => [:development, :test]
+gem 'rails_12factor', group: :production
