@@ -1,0 +1,11 @@
+<h1>Your post!</h1>
+
+<%= @post.link %><br>
+<%= @post.body %><br>
+<ol>
+<% @post.comments.all.each do |x| %>
+	<li> <%= x.body %> </li>
+<% end %>
+</ol><br>
+<%= link_to "Comment", new_post_comment_path(@post.id) %> <br>
+<%= link_to "New", new_post_path %>
