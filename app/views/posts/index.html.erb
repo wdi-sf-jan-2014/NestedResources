@@ -11,6 +11,5 @@
 <% @posts.each do |p| %></br>
 	<a href= "<%= post_path(p) %>"><%= p.link %> </a></br>
 	<%= p.body %></br> 
-	<%=link_to "Comment on this post", new_post_comment_path(p)%></br>
 	<% end %>
 </div>
