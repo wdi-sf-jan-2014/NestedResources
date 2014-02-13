@@ -1,0 +1,7 @@
+<h1> all comments: </h1>
+
+<% @comments.each do |comment| %>
+    <li><%= comment.say %></li>
+<% end %>
+
+<%= link_to 'home', root_path, method: :get %>

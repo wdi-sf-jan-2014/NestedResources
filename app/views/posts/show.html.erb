@@ -1,0 +1,13 @@
+<h1><%= @post.title %></h1>
+
+<h5>add a comment:</h5>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :say %>
+  <%= f.submit %>
+<%end%>
+
+<% @post.comments.each do |comment|  %>
+<p> <a href="/posts/<%=@post.id%>/comments/<%=comment.id%>"><%= comment.say %></a></p>
+<% end %>
+
+<%= link_to 'back', root_path, method: :get %>
