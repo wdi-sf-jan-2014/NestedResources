@@ -1,0 +1,13 @@
+
+<h1><%= @post.title %></h1>
+<h2><%= @post.body %></h2>
+<h3><a href="<%= @post.link %>"><%= @post.link %></a></h3>
+
+<h4>Comments:</h4>
+<% @comments.each do |c| %>
+<p><%= c.body %></p>
+<% end %>
+
+<%= render "/comments/new_comment" %>
+
+<%= button_to "Posts", posts_path, method: :get %>
