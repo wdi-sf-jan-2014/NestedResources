@@ -28,7 +28,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'better_errors'
   gem 'binding_of_caller'
 end
 
@@ -42,3 +41,9 @@ gem 'bootstrap-sass'
 group :development do
   gem 'rails_layout'
 end
+
+group :development do
+  gem "better_errors"
+end
+
+gem 'ancestry'

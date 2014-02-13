@@ -1,18 +1,12 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
- 
+<h1><%= @post.title %></h1>
+
+<%= simple_format @post.text %>
+<td><%= @post.link %></td>
+
+<p><%= link_to "Back to Articles", posts_path %></p>
+
 <h2>Comments</h2>
-<%= render @post.comments %>
- 
-<h2>Add a comment:</h2>
+
+<%= render "comments/comments" %>
 <%= render "comments/form" %>
- 
-<%= link_to 'Edit Post', edit_post_path(@post) %> |
-<%= link_to 'Back to Posts', posts_path %>
+
