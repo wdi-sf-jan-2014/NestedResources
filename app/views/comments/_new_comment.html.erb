@@ -1,4 +1,6 @@
 <%= form_for [@post, @new_comment] do |f| %>
   <%= f.text_area :body %>
+  <% f.hidden :type, value = @comment_type %>
+  <% f.hidden :id, value = params[:id] %>
   <%= f.submit %>
 <% end %>
