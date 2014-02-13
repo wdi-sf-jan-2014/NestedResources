@@ -1,0 +1,19 @@
+<h3><a href=<%= @post.link %>><%= @post.body %></a></h3>
+
+<ul>
+  <% @comments.each do |c| %>
+    <li><%= c.body %> (<%=link_to "reply", post_comment_path(@post.id, c.id) if !c.id.nil? %>)
+      <ul>
+      <% c.comments.each do |com| %>
+        <li><%=com.body %> </li>
+      <% end %>
+
+      </ul>
+
+    </li>
+  <% end %>
+</ul>
+
+<%= render "/comments/new_comment" %>
+
+<%= @post.link %>
