@@ -7,6 +7,16 @@ gem 'rails', '4.0.2'
 
 gem 'pg'
 
+gem 'nokogiri'
+
+gem 'typhoeus'
+
+gem 'unicorn'
+
+gem 'unicorn-rails', :groups => [:development, :test]
+
+gem 'sidekiq'
+
 gem 'devise'
 
 gem 'sass-rails', '~> 4.0.0'
