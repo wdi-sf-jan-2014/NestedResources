@@ -1,0 +1,10 @@
+<!-- Don't need this page since user will be redirected to 
+	/posts/:id to view the newly added comment to the post -->
+
+<h3><%= @post.body %></h3>
+<br>
+Comments:<br>
+<% @post.comments.each do |comment| %>
+	<%= comment.body %><br>
+<% end %>
+

@@ -1,0 +1,11 @@
+<%= link_to "Back"%>
+<h1><%#= @post.body %></h1>
+
+Comments:<br>
+	<%= @comment.body %><br>
+
+<%= form_for @comment, :url => {:action => "create"} do |f| %>
+	<%= f.text_area :body, placeholder: "Comment" %><br>
+	<%= f.submit %>
+<% end %>
+
