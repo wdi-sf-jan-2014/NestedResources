@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_filter :get_parent
 
   def index
-    @post = Post.find(params[:post_id])
+    # @post = Post.find(params[:post_id])
   end
 
   def new
@@ -21,9 +21,9 @@ class CommentsController < ApplicationController
     # comment = post.comments.create(new_comment)
     # redirect_to post_path(post)
 
-    @comment = @parent.comments.build(params[:comment])
-    if @comment.save
-      redirect_to post_path(@comment.post)
+    new_comment = @parent.comments.build(params.require(:comment).permit(:body))
+    if new_comment.save
+      redirect_to root_url
     else
       render :new
     end
