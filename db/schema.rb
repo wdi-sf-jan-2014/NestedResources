@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140212070231) do
     t.string   "body"
     t.integer  "post_id"
     t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
