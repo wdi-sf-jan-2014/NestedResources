@@ -9,6 +9,9 @@ gem 'pg'
 
 gem 'nokogiri'
 gem 'typhoeus'
+gem 'sidekiq'
+gem 'unicorn'
+gem 'unicorn-rails', :groups => [:development, :test]
 
 gem 'devise'
 
