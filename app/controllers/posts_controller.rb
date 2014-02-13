@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 			comment = post.comments.create(new_comment)
 			current_user.comments << comment
 		end
+		LinksWorker.perform_async(post.id)
   	redirect_to post_path(post)
   end
 end
