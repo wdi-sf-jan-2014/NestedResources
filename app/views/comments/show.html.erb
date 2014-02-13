@@ -1,16 +1,12 @@
-<h1>Comments for: <%= @post.link %></h1>
+<h1>Comment <%=@comment.id%> for: <%= @post.link %></h1>
 <% #ebinding.pry %>
-<%if @post.comments.count == 1 %>
-	<h2>Comment: <%=@post.comments.id%></h2>
-	<h3>Comment: <%= @post.comments.body %></h3>
-<% else %>
-	<% @post.comments.each do |comment| %>
-		<h2>Comment: <%= comment.id %></h2>
-		<h3>Comment: <%= comment.body %></h3>
-		<%=button_to "Edit this Comment",  edit_post_comment_path, method: :get %>
-	<% end %>
-<% end %>
+	<h2>Comment: <%=@comment.body%></h2>
+			<p> Comment on this comment:</p>
 
+	 <%=form_for [@post, @comment], url: post_comment_path(@post.id, @comment.id), method: :patch do |f| %>
+  			<%= f.text_area :body, :rows => 4 %><br>
+  				<%= f.submit "Post Comment" %>
+   		<% end %>
 
 <%= button_to "See post", post_path(@post.id), method: :get %>
 <%= button_to "Home", root_path, method: :get %>
