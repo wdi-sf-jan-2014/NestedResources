@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments
-    @comment = @post.comments.build
+    @new_comment = @post.comments.build
   end
 
   def destroy

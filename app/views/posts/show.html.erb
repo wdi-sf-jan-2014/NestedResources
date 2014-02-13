@@ -2,10 +2,14 @@
 
 <ul>
   <% @comments.each do |c| %>
-    <li><%= c.body %>
-<!--       <%# c.comments.each do |com| %>
-        <%#=com.body %>
-      <%# end %> -->
+    <li><%= c.body %> (<%=link_to "reply", post_comment_path(@post.id, c.id) if !c.id.nil? %>)
+      <ul>
+      <% c.comments.each do |com| %>
+        <li><%=com.body %> </li>
+      <% end %>
+
+      </ul>
+
     </li>
   <% end %>
 </ul>

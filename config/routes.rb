@@ -7,7 +7,7 @@ NestedResources::Application.routes.draw do
   resources :users, only: [:show]
 
   resources :posts, except: [:edit, :update] do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:new, :create, :show]
   end
 
   root to: 'posts#index'
