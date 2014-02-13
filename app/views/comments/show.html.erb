@@ -5,8 +5,8 @@
 
 <br><%= link_to "Edit this comment", edit_post_comment_path %></br>
 
-<% @comment_comments.each do |c| %>
-	<%= c.body %>
+<% @comment.comments.each do |comment| %>
+	<%= comment.comment_body %>
 <% end %></br>
 
 
