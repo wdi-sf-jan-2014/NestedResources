@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+
+<%= simple_format @post.text %>
+<td><%= @post.link %></td>
+
+<p><%= link_to "Back to Articles", posts_path %></p>
+
+<h2>Comments</h2>
+
+<%= render "comments/comments" %>
+<%= render "comments/form" %>
+
