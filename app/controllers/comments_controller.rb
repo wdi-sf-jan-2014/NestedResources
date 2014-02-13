@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 		@comment = Comment.find(params[:id])
 	end
 
+	# creates comment for post
 	def create
 		post = Post.find(params[:post_id])
 		comment = post.comments.create(params[:comment].permit(:body))
@@ -13,6 +14,7 @@ class CommentsController < ApplicationController
 		redirect_to post_path(post)
 	end
 
+	# creates comment for comment
 	def comment_create
 		comment = Comment.find(params[:id])
 		new_comment = comment.comments.create(params[:comment].permit(:body))
