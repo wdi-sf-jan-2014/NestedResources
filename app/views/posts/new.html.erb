@@ -1,0 +1,13 @@
+<h1> Submit a New Post! </h1>
+
+<%= form_for @post do |f| %>
+
+	<%= f.text_field :link, placeholder: "Place Your Link Here"%>
+	<%= f.text_field :body, placeholder: "Place Your Description Here"%>
+
+	<%= f.fields_for :comments, @post.comments.build do |a| %>
+		<%= a.text_field :body, placeholder: "Place Your Comment Here" %>
+		<% end %>
+		<%= f.submit %>
+
+<% end %>

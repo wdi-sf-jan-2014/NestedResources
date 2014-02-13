@@ -1,0 +1,6 @@
+<h1><%= @post.link %></h1>
+
+
+<% @post.comments.each do |a| %>
+	Comment: <%= a.body %> <br>
+<% end %>
