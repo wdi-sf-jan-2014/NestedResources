@@ -1,2 +1,12 @@
-<h1>Post: <%= @post.title %></h1>
-<div> Comment: <%= @comment.say %></div>
+<h4><%= @post.title %></h4>
+
+<h3><%= @comment.say %></h3>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :say %>
+  <%= f.submit %>
+<%end%>
+
+<%= button_to 'delete', "/posts/#{@post.id}/comments/#{@comment.id}", :method => :delete%>
+
+<%= link_to 'home', root_path, method: :get %>

@@ -31,11 +31,10 @@
   <%end%>
 
   <br>click on post to see comments:
-  <ul>
     <% @post.each do |post| %>
     <li><%= link_to "#{post.title}", post_path(post.id), :method => :get %></li>
+    <%= button_to 'delete', post_path(post.id), :method => :delete%>
     <% end %>
-  </ul> 
 <% else %>
   sign in to see posts
 <% end %>

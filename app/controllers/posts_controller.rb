@@ -9,6 +9,12 @@ class PostsController < ApplicationController
   redirect_to post
   end
 
+  def destroy
+  @post = Post.find(params[:id])
+  @post.destroy
+  redirect_to index
+  end
+
   def show
   @post = Post.find(params[:id])
   @comment = @post.comments.new
