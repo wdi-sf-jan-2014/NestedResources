@@ -1,18 +1,24 @@
-<h1>Welcome to STUDDIT </h1>
-
 <!-- Form to post links -->
-<h3>Post a link</h3>
+<h1 class="page-heading">Post a link</h1>
 <%= form_for @post do |f| %>
-	<%= f.text_field :body, placeholder: "Title" %><br/>
-	<%= f.text_field :link, placeholder: "http://" %><br />
-	<%= f.fields_for :comment, @post.comments.build do |b| %>
-          <%= b.text_area :body, placeholder: "Your comments" %><br />
+	<%= f.text_field :body, placeholder: "Title", class: "form-control" %><br/>
+	<%= f.text_field :link, placeholder: "http://", class: "form-control" %><br />
+	<%= f.fields_for :comments, @post.comments.build do |b| %>
+          <%= b.text_area :body, placeholder: "Your comments", class: "form-control" %><br />
      <% end %>
-	<%= f.submit %>
+	<%= f.submit class: "btn btn-primary btn-lg" %>
 <% end %>
 
 <!-- Last five posts -->
 <% unless @posts.size == 0 %>
-	<h3>Last five posts...</h3>
-	<%= render @posts %>
+<div class="last-five">
+	<h1>Last five posts on Studdit</h1>
+	<% i = 1 %>
+	<% @posts.each do |post| %>
+		<h3><%= i %>. <%= link_to post.body, post_path(post) %></h3> 
+		<%= render partial: 'bylines', locals: { post: post } %>
+		
+		<% i +=1 %>
+	<% end %>
+</div>
 <% end %>

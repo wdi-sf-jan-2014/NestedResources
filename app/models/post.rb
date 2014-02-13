@@ -3,4 +3,9 @@ class Post < ActiveRecord::Base
   has_many :comments
 
   accepts_nested_attributes_for :comments
+
+  def author
+	user_id.nil? ? "Guest" : User.find(user_id).email
+  end
+
 end

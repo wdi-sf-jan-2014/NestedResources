@@ -1,1 +1,1 @@
-<%= render @post %>
+<%= render partial: 'shared/post', locals: { post: @post, comments: @comments, comment: @new_comment } %>

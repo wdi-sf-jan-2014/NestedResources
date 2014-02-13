@@ -1,18 +1,2 @@
-<h1>Welcome to STUDDIT </h1>
-
-<!-- Form to post links -->
-<h3>Post a link</h3>
-<%= form_for @post do |f| %>
-	<%= f.text_field :body, placeholder: "Title" %><br/>
-	<%= f.text_field :link, placeholder: "http://" %><br />
-	<%= f.fields_for :comment, @post.comments.build do |b| %>
-          <%= b.text_area :body, placeholder: "Your comments" %><br />
-     <% end %>
-	<%= f.submit %>
-<% end %>
-
-<!-- Last five posts -->
-<% unless @posts.size == 0 %>
-	<h3>Last five posts...</h3>
-	<%= render @posts %>
-<% end %>
+<h1>Posts.new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>

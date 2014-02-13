@@ -1,17 +1,20 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
-  	@post = Post.new
+  	@post = current_user.posts.new
   	@posts = Post.all.order(created_at: :desc).limit(5)
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
+    @comments = @post.comments
+    @new_comment = current_user.posts.new
   end
   
   def create
-    post = Post.create(get_post_params)
-    redirect_to post_path(post)  
+    post = current_user.posts.create(get_post_params)  
+    redirect_to post_path(post)
   end
 
   def edit
@@ -26,7 +29,7 @@ class PostsController < ApplicationController
   private
   def get_post_params
     params.require(:post)
-          .permit(:body, :link, :comments_attributes => [:body])
+          .permit(:body, :link, comments_attributes: [ :body ])
   end
 
 end
