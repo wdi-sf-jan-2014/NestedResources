@@ -9,8 +9,8 @@
       <%= f.label(:body) %>
       <%= f.text_area(:body, size: "24x6", class: "form-control") %>
     </div>
-    <%= f.fields_for(:comment, @post.comments.build) do |pc| %>
-      <%= f.label(:comment) %>
+    <%= f.fields_for(:comments, @post.comments.build) do |pc| %>
+      <%= f.label(:body) %>
       <%= pc.text_area(:body, size: "24x6", class: "form-control") %>
     <% end %>
     <%= f.submit("Create Post", class: "btn btn-large btn-primary") %>
