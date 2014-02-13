@@ -1,3 +1,9 @@
 Show comment for <%=@post.link%> <%=@post.body%>:
 <br>
 <%= @comment.body %>
+<br>
+Comment On This Comment:
+<%= form_for :comment, method: :patch do |f| %>
+	<%= f.text_field :body %>
+	<%= f.submit %>
+<%end%>

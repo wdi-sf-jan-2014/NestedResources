@@ -17,4 +17,15 @@ class CommentsController < ApplicationController
 
   	redirect_to post_comment_path(post, comment)
   end
+
+  def update
+    #add sub comments here 
+    post = Post.find(params[:post_id])
+    comment = post.comments.find(params[:id])
+    new_comment_body = params.require(:comment).permit(:body)
+    comment.comments.create(new_comment_body) 
+
+    redirect_to post_comment_path(post, comment)
+
+  end
 end
