@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   def create
     post = Post.find(params[:post_id])
     new_comment = post.comments.create(comment_params) 
-    current_user.comments << new_comment
+    # current_user.comments << new_comment
     redirect_to post_path(post)
   end
 
@@ -40,4 +40,12 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:comment_body)
   end
+
+  protected
+
+  def get_parent
+    @parent = Post.find(params[:post_id]) if params[:post_id]
+    @parent = Comment.find(params[:comment_id]) if params[:comment_id]
+  end
+
 end

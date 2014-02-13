@@ -21,5 +21,5 @@ Comments:<br>
 </div>
 
 <% @comments.each do |c| %>
-<%= c.user.email %>: <%= c.comment_body %><%= link_to "view", post_comment_path(@post, c.id) %><br>
+<%= c.comment_body %><%= link_to "View", post_comment_path(@post, c.id) %><br>
 <% end %>
