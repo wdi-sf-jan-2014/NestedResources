@@ -9,6 +9,11 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'sidekiq'
+
+gem 'redis'
+
+
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -20,16 +25,21 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+group :development do
+  # gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'guard-rspec'
+  gem 'launchy'
   gem 'database_cleaner'
   gem 'dotenv-rails'
   gem 'pry'
-  gem 'pry-byebug'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'pry-byebug'
+  # gem 'quiet_assets'
 end
 
 group :doc do
