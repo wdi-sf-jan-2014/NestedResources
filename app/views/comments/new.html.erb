@@ -1,0 +1,13 @@
+<h3> NEW COMMENT FOR THIS POST: </h3>
+
+<%= form_for [@post, @comment] do |nc| %>
+  <%= nc.text_field :comment %><br />
+  <%= nc.submit class: 'btn btn-default' %>
+<% end %>
+
+<br />
+<div>
+Description: <%= @post.body %> <br />
+Link: <a href='<%= @post.link %>', target='_blank'>CLICK THIS LINK.</a> <br />
+
+</div>

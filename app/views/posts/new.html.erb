@@ -1,0 +1,10 @@
+<H3> NEW POST </h3>
+	
+<%= notice %>
+
+<%= form_for @post do |post| %>
+<%= post.url_field :link, placeholder: "link" %><br />
+<%= post.text_field :body, placeholder: "description of link" %><br />
+<%= post.submit class:'btn btn-default' %>
+
+<% end %>
