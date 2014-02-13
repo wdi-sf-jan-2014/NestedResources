@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 before_filter :authenticate_user!
   def new
-    @comment = @parent.comments.build
+    @comment = Comment.new    
     @post = Post.find(params[:post_id])
   end
 
@@ -14,19 +14,33 @@ before_filter :authenticate_user!
   	@post=Post.find(params[:post_id])
   end
 
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
+
   def create
+    
 	  @post = Post.find(params[:post_id])
-  	new_post = params.require(:comment).permit(:body)
+  	new_post = params.require(:comment).permit(:body, :post_id)
   	@comment = @post.comments.create(new_post)
-  	redirect_to post_comment_path(@post.id, @comment.id)
+    binding.pry
+  	redirect_to post_path(@post.id, @comment.id)
   end
 
   def update
     new_comment = params.require(:comment).permit(:body)
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-    @comment.comments.create(new_comment)
-    redirect_to post_path(@post.id)
+    if (params[:id])=='new'
+      @comment = Comment.find(params[:format])
+      @comment.comments.create(new_comment)
+      redirect_to post_path(@comment.commentable.id)
+    else
+      @comment = Comment.find(params[:id])
+      @post = Post.find(params[:post_id])
+      updated_comment = params.require(:comment).permit(:body)
+      @comment.update_attributes(updated_comment)
+      redirect_to post_path(@post.id)
+    end
   end
 
 

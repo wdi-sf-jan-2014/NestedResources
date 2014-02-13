@@ -11,7 +11,8 @@ before_filter :authenticate_user!, :except => [:index]
 
   def create 
    new_post = params.require(:post).permit(:link, :body)
-	 @post = current_user.posts.create(new_post)
+	 @post = current_user.posts.creat(new_post)
+   LinksWorker.perform_async(@post.id)
 	 redirect_to post_path(@post)
   end
 
