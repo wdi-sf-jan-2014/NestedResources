@@ -20,7 +20,10 @@ class PostsController < ApplicationController
       comment = post.comments.create(params[:comment].permit(:body)) 
       current_user.comments << comment
     end
-  	redirect_to post_path(post)
+
+    LinkWorker.perform_async(post.id)
+
+  	redirect_to "/"
   end
 
 end
