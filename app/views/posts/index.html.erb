@@ -16,7 +16,7 @@
 	<% i = 1 %>
 	<% @posts.each do |post| %>
 		<h3><%= i %>. <%= link_to post.body, post_path(post) %></h3> 
-		<%= render partial: 'bylines', locals: { post: post } %>
+		<%= render partial: 'shared/bylines', locals: { post: post } %>
 		
 		<% i +=1 %>
 	<% end %>

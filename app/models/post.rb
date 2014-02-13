@@ -8,4 +8,8 @@ class Post < ActiveRecord::Base
 	user_id.nil? ? "Guest" : User.find(user_id).email
   end
 
+  def comment_count
+  	Comment.where(post_id: id).count
+  end
+
 end
