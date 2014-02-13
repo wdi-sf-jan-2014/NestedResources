@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def create
     post_params = params.require(:post).permit(:link, :body, comments_attributes: [ :body ])
+    LinksWorker.perform_async(post.id)
     post = current_user.posts.create(post_params)
     redirect_to post_path(post.id)
   end

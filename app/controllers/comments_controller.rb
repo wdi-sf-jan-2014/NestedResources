@@ -19,7 +19,4 @@ class CommentsController < ApplicationController
     redirect_to post_comment_path(params[:post_id], comment.id)
   end
 
-
-
-
 end
