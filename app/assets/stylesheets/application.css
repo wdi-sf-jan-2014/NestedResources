@@ -38,3 +38,12 @@
 .last-five {
 	margin-top: 70px;
 }
+
+.reply-btn {
+	margin-top: 15px;
+}
+
+.comment-wrap {
+	list-style-type: none;
+	margin-left: -45px
+}

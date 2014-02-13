@@ -1,26 +1,13 @@
 <div class="post-list">
 	
 	<!-- Post -->
-	<%= render partial: 'shared/post_head', locals: {post: post} %>
+	<%= render partial: 'shared/post_head', locals: { post: post } %>
 	<p><%= link_to "Comment", new_post_comment_path(post), class: "btn btn-success btn-xs" %></p>
 
-
-	<%#= form_for [post, comment] do |f| %>
-		<%#= f.text_area :body, placeholder: "Add your comment", class: "form-control" %> <br />
-		<%#= f.submit class: "btn btn-success btn-md" %>
-	<% #end %>
-
-
 	<!-- Comments -->
-	<% unless post.comments.size == 0 %>
-		<div class="comments-all">
-			<% comments.each do |comment| %>
-				<div class="comment-wrap alert-warning">
-					<h5><%= link_to post.author, post_comment_path(post, comment) %> says...</h5> 
-					<%= comment.body %>
-				</div>
-			<% end %>
-		</div>
-	<% end %>
+	<h3>Comments</h2>
+	<ul class="comment_list">
+		<%= render partial: 'shared/comment', collection: post.comments.order(created_at: :asc) %>
+	</ul>
 
 </div>

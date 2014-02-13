@@ -1,4 +1,18 @@
-<div class="comment-wrap alert-warning">
-	<h5><%= link_to post.author, post_comment_path(post, comment) %> says...</h5> 
+<li class="comment-wrap alert-warning">
+<h5>
+	<% if comment.commentable.is_a?(Post) %>
+		<%= link_to comment.author, post_comment_path(comment.commentable, comment) %> 
+	<% else %>
+		<%= link_to comment.author, comment_comment_path(comment.commentable, comment) %> 
+	<% end %>  says...</h5>
+<div class="comment-body">
 	<%= comment.body %>
 </div>
+<p class="reply-btn"><%= link_to "Reply", new_comment_comment_path(comment), class: "btn btn-success btn-xs" %></p>
+</li>
+<% unless comment.comments.empty? %>
+	<ul class= "comment_list">
+		<%= render partial: 'shared/comment', collection: comment.comments.order(created_at: :asc) %>
+	</ul>
+<% end %>
+
