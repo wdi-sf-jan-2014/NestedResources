@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!
   def index
-    @posts = current_user.posts
+    @posts = Post.all
+    if signed_in?
+      render :index
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def new
@@ -15,6 +20,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 end
