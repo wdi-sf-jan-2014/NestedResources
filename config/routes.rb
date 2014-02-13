@@ -3,15 +3,15 @@ NestedResources::Application.routes.draw do
     resources :comments
   end 
 
-  get "posts/index"
+  get "comments/new"
   devise_for :users
 
-  get '/posts', to: 'posts#index'
+  # get '/posts', to: 'posts#index'
   root to: 'posts#index'
 end
 
 
-#                  Prefix Verb   URI Pattern                                 Controller#Action
+#          Prefix Verb   URI Pattern                                 Controller#Action
 #            post_comments GET    /posts/:post_id/comments(.:format)          comments#index
 #                          POST   /posts/:post_id/comments(.:format)          comments#create
 #         new_post_comment GET    /posts/:post_id/comments/new(.:format)      comments#new
@@ -28,7 +28,7 @@ end
 #                          PATCH  /posts/:id(.:format)                        posts#update
 #                          PUT    /posts/:id(.:format)                        posts#update
 #                          DELETE /posts/:id(.:format)                        posts#destroy
-#              posts_index GET    /posts/index(.:format)                      posts#index
+#             comments_new GET    /comments/new(.:format)                     comments#new
 #         new_user_session GET    /users/sign_in(.:format)                    devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)                    devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)                   devise/sessions#destroy
@@ -44,5 +44,4 @@ end
 #                          PATCH  /users(.:format)                            devise/registrations#update
 #                          PUT    /users(.:format)                            devise/registrations#update
 #                          DELETE /users(.:format)                            devise/registrations#destroy
-#                          GET    /posts(.:format)                            posts#index
 #                     root GET    /                                           posts#index
