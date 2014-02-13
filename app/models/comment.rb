@@ -15,5 +15,5 @@ class Comment < ActiveRecord::Base
 	belongs_to :post
 	has_one :user
 
-  validates :comment, presence: {strict: true, message: "Can't be blank silly."}
+  validates :comment, presence: {strict: false, message: "Can't be blank silly."}
 end

@@ -15,12 +15,14 @@ class CommentsController < ApplicationController
 
   def create
     post = Post.find(params[:post_id])
-    new_comment = params.require(:comment).permit(:comment)
-    user = current_user
-    if new_comment.nil?
-      comment = post.comments.create(new_comment)
-      redirect_to post_path(post)   
+    c = params.require(:comment).permit(:comment)
+    new_c = post.comments.create(c)
+
+    unless new_c.id
+      flash[:notice] = "Dude, a comment can't be blank!"
+      redirect_to new_post_comment_path
     else
+      redirect_to post_path(post)
     end
   end
 

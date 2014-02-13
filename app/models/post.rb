@@ -17,5 +17,5 @@ class Post < ActiveRecord::Base
   
   accepts_nested_attributes_for :comments
 
-  validates :link, :body, presence: {strict: true, message: "Can't be blank silly."}
+  validates :link, :body, presence: {strict: false, message: "Can't be blank silly."}
 end
