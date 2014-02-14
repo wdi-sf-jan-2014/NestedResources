@@ -1,0 +1,10 @@
+Post
+<div><%= @post.link %></div>
+<div><%= @post.body %></div>
+
+<div>
+  Comments
+  <% @post.comments.each do |comment| %>
+    <div><a href="<%= post_comment_path((params[:id]), comment.id)%>"><%= comment.body %></a></div>
+  <% end %>
+</div>

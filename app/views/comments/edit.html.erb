@@ -1,0 +1,9 @@
+<h1>Comment on <%= @comment.body %></h1>
+
+<%= form_for @comment, post_comment_path do |f| %>
+   <%= f.fields_for :comments do |c| %>
+   <%= c.text_field :body %>
+   <%= f.submit %>
+ <% end %>
+ <%end%>
+
