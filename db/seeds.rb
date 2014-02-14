@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Post.create({ link: 'http://google.com', body: 'Google is cool'})
+Post.create({ link: 'http://generalassemb.ly', body: 'General Assembly is a place to learn'})

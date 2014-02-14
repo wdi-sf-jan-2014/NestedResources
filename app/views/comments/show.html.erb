@@ -1,0 +1,12 @@
+<h2><%= @comment.body %></h2>
+
+<h4>Comments for this comment</h4>
+<% @comment.comments.each do |c| %>
+	<h4><%= link_to c.body, post_comment_path(@post, c) %></h4>
+<% end %>
+
+<%= form_for :comment, url: "/posts/#{@post.id}/new_comment/#{@comment.id}" , method: :post do |f| %>
+	<%= f.text_area :body, placeholder: "Comment on comments", value: nil %>
+	<br />
+	<%= f.submit "Comment" %>
+<% end %>
