@@ -14,6 +14,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
+gem 'unicorn'
+
+gem 'pg'
+
+gem 'nokogiri'
+
+gem 'typhoeus'
+
+
+gem 'rails_12factor', group: :production
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -28,8 +39,9 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'better_errors'
+  #gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'unicorn-rails'
 end
 
 group :doc do
