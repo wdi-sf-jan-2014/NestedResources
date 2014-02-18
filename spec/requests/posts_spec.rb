@@ -20,7 +20,9 @@ describe "Posts" do
 
   describe "POST /posts" do
     before do
+      sign_in_as_a_valid_user
       post posts_path({ post: { link: 'http://google.com', body: 'Google is cool'} })
+      follow_redirect!
       follow_redirect!
     end
     it "should be successful" do
