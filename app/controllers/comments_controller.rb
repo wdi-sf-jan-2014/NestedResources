@@ -2,8 +2,7 @@ class CommentsController < ApplicationController
 
     def index
         @parent = parent
-       @comments = @parent.comments
-       #raise
+        @comments = @parent.comments
     end
 
     def new
