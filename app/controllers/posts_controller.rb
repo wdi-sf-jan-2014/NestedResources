@@ -1,12 +1,7 @@
 class PostsController < ApplicationController
-before_filter :authenticate_user!
-
+  
   def index
-    @posts = current_user.posts
-  end
-
-  def show
-    @post = current_user.posts.find(params[:id])
+    @posts = Post.all
   end
 
   def new
@@ -14,12 +9,12 @@ before_filter :authenticate_user!
   end
 
   def create
-    
-    #post = Post.create(params[:post].permit(:body, :comments_attributes=>[:body]))
-    #redirect_to post
+    new_post = params.require(:post).permit(:link, :body)
+    post = Post.create(new_post)
+    redirect_to post
   end
 
-  def destroy
+  def show
+    @post = Post.find(params[:id])
   end
-
 end

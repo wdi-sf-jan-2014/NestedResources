@@ -1,20 +1,16 @@
-NestedResources::Application.routes.draw do 
-  
-  get "posts/create"
-  get "posts/new"
-  get "posts/show"
-  get "comments/show"
+NestedResources::Application.routes.draw do
   get "comments/index"
   get "comments/new"
   get "comments/create"
-  get "comments/destroy"
+  get "comments/show"
   get "posts/index"
   devise_for :users
 
   get '/posts', to: 'posts#index', as: :posts
-  root to: 'posts#new'
+  root to: 'posts#index'
+
 
   resources :posts do
-   	resources :comments
-   end
+    resources :comments
+  end
 end

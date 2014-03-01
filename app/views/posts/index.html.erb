@@ -1,13 +1,14 @@
-<h1>Please add a post</h1>
-<%= form_for @post do |f| %>
-  <%= f.text_field :link, placeholder: "Name of link" %>
-  <%= f.fields_for :comments, @post.comments.build do |b| %>
-    <%= b.text_field :body, placeholder: "Add a comment" %>
-    <% end %>
-    <%= f.submit %>
-<% end %>
-
-
-<% @posts.each do |post| %>
-
-	<!-- add a button to add a post -->
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+<div>
+<ul>
+  <% @posts.each do |x| %>
+    <li>
+      <div><%= x.link %></div>
+    </li>
+    <ul><li>
+      <div><%= x.body %></div>
+    </li></ul>
+  <% end %>
+</ul>
+</div>
