@@ -2,13 +2,6 @@ require 'spec_helper'
 
 describe CommentsController do
 
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
-  end
-
   describe "GET 'index'" do
     it "returns http success" do
       get 'index'
@@ -30,9 +23,9 @@ describe CommentsController do
     end
   end
 
-  describe "GET 'destroy'" do
+  describe "GET 'show'" do
     it "returns http success" do
-      get 'destroy'
+      get 'show'
       response.should be_success
     end
   end

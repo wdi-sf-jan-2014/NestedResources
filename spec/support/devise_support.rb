@@ -14,4 +14,3 @@ module ValidUserRequestHelper
       'user[email]' => @user.email, 'user[password]' => @user.password
   end
 end
-
